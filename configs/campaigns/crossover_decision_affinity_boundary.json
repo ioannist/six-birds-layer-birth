@@ -1,0 +1,30 @@
+{
+  "campaign_id": "crossover_decision_affinity_boundary",
+  "artifact_subdir": "crossover_decision_affinity_boundary",
+  "config_path_hint": "configs/campaigns/crossover_decision_affinity_boundary.json",
+  "findings_note_path": "notes/findings/LB-17_crossover_decision_affinity_boundary.md",
+  "decision_audit_inputs": {
+    "class_i_fit_summary_path": "results/campaigns/class_i_equilibrium/analysis/fit_summary.json",
+    "class_ii_fit_summary_path": "results/campaigns/class_ii_driven/analysis/fit_summary.json",
+    "class_comparison_path": "results/campaigns/class_ii_driven/analysis/comparison_to_class_i.json"
+  },
+  "decision_thresholds": {
+    "affinity_ratio_min": 10.0,
+    "affinity_diff_min": 0.01,
+    "lambda_delta_min": 0.05,
+    "window_score_threshold": 0.1
+  },
+  "affinity_scan_panel": {
+    "sizes": [8, 16],
+    "self_weight": 0.1,
+    "flow_total": 0.9,
+    "bias_grid": [0.0, 0.05, 0.1, 0.2, 0.35],
+    "lambda_grid": [0.55, 0.65, 0.75, 0.85, 0.95, 1.0],
+    "lift_name": "uniform_lift_family",
+    "tau_protocol": {
+      "name": "fixed",
+      "tau": 1
+    },
+    "control_application_name": "mix_with_packaging_projector"
+  }
+}

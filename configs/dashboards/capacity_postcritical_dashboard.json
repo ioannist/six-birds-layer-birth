@@ -1,0 +1,9 @@
+{
+  "dashboard_id": "capacity_postcritical_dashboard",
+  "artifact_subdir": "capacity_postcritical_dashboard",
+  "source_capacity_bundle_root": "results/campaigns/capacity_depth_extension",
+  "representative_size": 64,
+  "capacity_primary_classifier_expected": false,
+  "capacity_postcritical_field_expected": true,
+  "findings_note_path": "notes/findings/F-04_capacity_postcritical_dashboard.md"
+}

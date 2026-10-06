@@ -1,0 +1,24 @@
+{
+  "suite_id": "class_iii_class_iv_lens_suite",
+  "artifact_subdir": "class_iii_class_iv_lens_suite",
+  "control_application_name": "mix_with_packaging_projector",
+  "size_panel": [32, 128],
+  "lambda_grid": [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00],
+  "tau_values": [1, 2],
+  "lift_name": "uniform_lift_family",
+  "lens_family_grid": [
+    {"name": "manual_family_coarse_lens"},
+    {"name": "spectral_sign_pattern_lens"},
+    {"name": "diffusion_quantile_lens"}
+  ],
+  "class_iii": {
+    "confirmation_summary_path": "results/pilots/class_iii_strict_confirmation_v2/analysis/confirmation_summary.json",
+    "pilot_config_path": "configs/pilots/class_iii_strict_confirmation_v2.json",
+    "fallback_candidate_name": "replicated_portal_sp4"
+  },
+  "class_iv": {
+    "campaign_summary_path": "results/campaigns/class_iv_full_campaign/analysis/campaign_summary.json",
+    "campaign_config_path": "configs/campaigns/class_iv_full_campaign.json"
+  },
+  "findings_note_path": "notes/findings/F-01_class_iii_class_iv_lens_suite.md"
+}

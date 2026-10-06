@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Layerbirth Result Bundle Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "bundle_id",
+    "created_at",
+    "code_version",
+    "config_snapshot_path",
+    "seed_list_path",
+    "metrics_table_path",
+    "plots_dir_path",
+    "notes_file_path",
+    "environment_snapshot_path"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "experiment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bundle_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "code_version": {
+      "type": "object",
+      "required": [
+        "git_commit",
+        "git_dirty"
+      ],
+      "properties": {
+        "git_commit": {
+          "type": "string"
+        },
+        "git_dirty": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "config_snapshot_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seed_list_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "metrics_table_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "plots_dir_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notes_file_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "environment_snapshot_path": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

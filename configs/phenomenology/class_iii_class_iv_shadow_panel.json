@@ -1,0 +1,40 @@
+{
+  "suite_id": "class_iii_class_iv_shadow_panel",
+  "control_application_name": "mix_with_packaging_projector",
+  "analysis_channel": {
+    "lens_name": "manual_family_coarse_lens",
+    "lift_name": "uniform_lift_family"
+  },
+  "size_panel": [16, 32, 64, 128],
+  "lambda_grid": [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00],
+  "tau_values": [1, 2],
+  "min_admissible_replicates": 6,
+  "class_iii": {
+    "class_name": "Class-III",
+    "target_label": "Class-III",
+    "artifact_subdir": "class_iii_shadow_panel",
+    "representative_source": {
+      "confirmation_summary_path": "results/pilots/class_iii_strict_confirmation_v2/analysis/confirmation_summary.json",
+      "strict_config_path": "configs/pilots/class_iii_strict_confirmation_v2.json"
+    },
+    "perturbation_spec": {
+      "structural_keys": ["fast_portal_weight", "portal_cross_weight", "portal_self_weight"],
+      "factors": [0.95, 1.0, 1.05]
+    }
+  },
+  "class_iv": {
+    "class_name": "Class-IV",
+    "target_label": "Class-IV",
+    "artifact_subdir": "class_iv_shadow_panel",
+    "representative_source": {
+      "campaign_summary_path": "results/campaigns/class_iv_full_campaign/analysis/campaign_summary.json",
+      "campaign_config_path": "configs/campaigns/class_iv_full_campaign.json"
+    },
+    "perturbation_spec": {
+      "structural_keys": ["fast_portal_weight", "portal_cross_weight", "portal_self_weight"],
+      "drive_keys": ["drive_mix", "flow_total", "drive_bias", "drive_self_weight"],
+      "factors": [0.95, 1.0, 1.05]
+    }
+  },
+  "findings_note_path": "notes/findings/F-02_class_iii_class_iv_shadow_panel.md"
+}

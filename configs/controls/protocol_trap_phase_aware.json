@@ -1,0 +1,6 @@
+{
+  "control_name": "protocol_trap_control",
+  "pair_self_weight": 0.2,
+  "schedule_order": ["pair01", "pair12", "pair20"],
+  "handling": "phase_aware"
+}

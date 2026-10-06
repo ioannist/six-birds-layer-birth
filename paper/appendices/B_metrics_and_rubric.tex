@@ -1,0 +1,33 @@
+\section{Rubric and representative details}
+\label{app:metrics-rubric}
+
+This appendix records the parameters behind the decision rule of Table~\ref{tab:rubric} and the representative kernels. The thresholds are conventions of this taxonomy. The claims of the paper concern their consistent use on the declared grids, not the absence of other reasonable choices.
+
+\paragraph{Thresholds.} Packaging targets: CE${}\le0.025$ and $M_{\mathrm{obj}}\ge0.90$. Packaging off: $\min\mathrm{CE}>0.05$ and $\max M_{\mathrm{obj}}<0.85$ on the grid. Drive on: $\mathrm{Aff}_{\mathrm{ref}}\ge10^{-3}$. Drive off: $\mathrm{Aff}_{\mathrm{ref}}\le10^{-6}$. $P4$-like signal: a presence change, or a largest shift of at least $0.05$. $P4$ on: a presence change, or both shifts at least $0.15$. $P4$ off: both shifts measured, no presence change, and the on condition fails. For packaging and drive, readings between the on and off thresholds are unknown. For every switch, missing evidence is unknown. A system with any unknown switch is unclassified. In addition to the main reading $\mathrm{Aff}_{\mathrm{ref}}$, the pipeline records affinity onset locations at $10^{-3}$, $10^{-2}$, and $5\times10^{-2}$ as diagnostics. These onsets do not enter the rule.
+
+\paragraph{Boundary conventions.} Boundaries are first-hit locations, linearly interpolated between the last miss and the first hit. A hit at the first grid point is recorded as left-censored. Duplicate grid coordinates and missing (NaN) readings are rejected. Infinite readings are allowed: an infinite affinity, which arises from one-way flux, counts as drive on, and at a support singularity only the sampled hit is used for a boundary. The structural reference $\max(\lambda_{\mathrm{CE}},\lambda_{M_{\mathrm{obj}}})$ is accepted only if both thresholds hold together there on the interpolated curves. This matters for non-monotone curves, where one threshold may be met early and lost again later. $\mathrm{Aff}_{\mathrm{ref}}$ is the linear interpolation of the sampled affinity at the $\tau=1$ structural reference.
+
+\paragraph{Stationary laws.} Affinity requires a stationary law. The pipeline computes it with a solver that decomposes the chain into communicating classes. It handles periodic and reducible kernels, assigns zero mass to transient states, and rejects any result whose balance residual exceeds a stated tolerance. Unconverged power iterates are never passed on as stationary laws. This matters in practice: twenty plain power steps on the reversible chain $\bigl(\begin{smallmatrix}0&1&0\\ 1/4&0&3/4\\ 0&1&0\end{smallmatrix}\bigr)$ give an apparent affinity of $0.23$, but its true stationary law $(1/8,1/2,3/8)$ gives zero. For the exact certificates the stationary law is uniform, and this is verified exactly (Proposition~\ref{prop:reversal}).
+
+\paragraph{Representative kernels and grids.} Table~\ref{tab:representatives} lists the representative kernels and grids.
+
+\begin{table}[tbp]
+\centering
+\small
+\caption{Representative kernels. All use the manual two-block lens, uniform lift, and $\tau\in\{1,2\}$.}
+\label{tab:representatives}
+\begin{tabularx}{\linewidth}{@{}l L{0.43\linewidth} Y@{}}
+\toprule
+Class & Kernel & $\lambda$ grid; sizes \\
+\midrule
+I   & two equal blocks; within-block weight $1$, cross-block $0.25$, no self-loop & $\{0.55,0.65,0.70,\dots,0.95,1\}$; $N=32$ (map: 64) \\
+II  & ring; stay $0.10$, forward $0.55$, backward $0.35$ & $\{0.50,0.55,\dots,0.80,0.90,1\}$; $N=32$ (map: 64) \\
+III & replicated portals; $f=1$, $g=0.02$, $c=1.2$, $s=4$ & 18 points, $0.05$--$1$; $N=16,32,64,128$ \\
+IV  & Class-III kernel mixed (weight $0.12$) with a ring of stay $0.10$, forward $0.57$, backward $0.33$ & same as III \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Lenses.} The manual lens splits each family into its two declared blocks. The two automatic lenses are built from a spectral coordinate. The left eigenpairs of $P^{\tau}$ (eigenpairs of $(P^{\tau})^{\top}$) are sorted by decreasing modulus, with ties broken by real part, then imaginary part, then index. Each eigenvector is replaced by its real part, and its sign is fixed so that its largest-magnitude entry is nonnegative. The coordinate is the second vector in this order. For $k=2$ the spectral sign-pattern lens groups states by the sign of this coordinate and falls back to a quantile split if the signs do not give exactly two groups. The diffusion-quantile lens splits states at the median of the same coordinate. The ordering is a deterministic convention: when the leading eigenvalue is degenerate, as for the reducible undriven portal kernel, or the selected eigenvalue is complex, as for the driven portal kernel, the coordinate is a convention-dependent choice, not a canonical slow mode. For the staging representatives the two constructions give the same readings. Both automatic lenses are used only in the robustness tests.
+
+\paragraph{Lift ablations.} When a robustness run replaces the uniform lift (for example by a prototype or stationary-weighted lift), the same lift is used in every packaging observable as well as in the control $P_\lambda$. All canonical results use the uniform lift.

@@ -1,0 +1,17 @@
+{
+  "dashboard_id": "affinity_result_consolidation",
+  "artifact_subdir": "affinity_result_consolidation",
+  "sources": {
+    "affinity_visibility_root": "results/campaigns/affinity_visibility_audit",
+    "structural_affinity_alignment_root": "results/campaigns/structural_affinity_alignment",
+    "crossover_decision_root": "results/campaigns/crossover_decision_affinity_boundary",
+    "class_i_ii_consolidation_root": "results/dashboards/class_i_class_ii_consolidation",
+    "class_iii_campaign_root": "results/campaigns/class_iii_full_campaign",
+    "class_iv_campaign_root": "results/campaigns/class_iv_full_campaign",
+    "four_class_synthesis_root": "results/dashboards/four_class_synthesis"
+  },
+  "conventions": {
+    "representative_size": 32
+  },
+  "findings_note_path": "notes/findings/S2-09_affinity_result_consolidation.md"
+}

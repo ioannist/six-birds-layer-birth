@@ -1,0 +1,13 @@
+\section{Version history}
+\label{app:version-history}
+
+\paragraph{Version 2 (October 3, 2026).} This version follows a full review of the mathematics and the analysis code behind version~1. The four class claims are unchanged. The main differences are as follows.
+\begin{itemize}
+  \item \emph{Exact results added} (Section~\ref{sec:exact-results}, Appendix~\ref{app:proofs}). These are a closed form for the packaging observables, an exact lower bound on affinity, rational certificates at ten (class, size) points, and a lumping proof that the undriven Class-III family has the same signature at every admissible size.
+  \item \emph{Measurement repairs.} Affinity now keeps one-way flux, which gives infinite rather than zero affinity. Stationary laws come from a verified solver rather than from unconverged power iterates. Affinity is read at $\max(\lambda_{\mathrm{CE}},\lambda_{M_{\mathrm{obj}}})$ with a joint-threshold check. Missing evidence is recorded as unknown rather than as absence. Boundary interpolation no longer snaps to interval midpoints, and left-censored boundaries are marked. Lift ablations use the selected lift in every observable.
+  \item \emph{Updated numbers.} The observable map is recomputed at a common size $N=64$. The Class-II boundary is reported as left-censored, and its affinity there is $4.23\times10^{-2}$. Version~1 had combined $N=32$ Class-I/II values ($3.45\times10^{-2}$) with $N=64$ Class-III/IV values. The Class-I affinity is reported as exactly zero. Shadow-ensemble susceptibility uses the convention $\chi=N\,\mathrm{Var}$, which gives peaks of order $10^{-5}$--$10^{-4}$ instead of the $10^{-6}$ reported in version~1. The Class-III growth with $N$ is shown to be exactly the factor $N$.
+  \item \emph{Sharper scope statements.} The capacity index is shown to be a rescaling of the structural boundary. The upstream bridge is described as kernels built from compiled upstream features, not native dynamics. The protocol-trap control is described as a comparison of a hidden-schedule product with its constituent phase kernels. The Lean statement is identified as covering only the idempotence of $QU$.
+  \item \emph{Presentation.} The text has been rewritten and shortened. New figures show the exact structural curves, the affinity curves, and a redrawn observable map. The separate capacity and upstream figures have been replaced by text and an overlay.
+\end{itemize}
+
+\paragraph{Version 1 (March 16, 2026).} First release, DOI \href{https://doi.org/10.5281/zenodo.19047665}{10.5281/zenodo.19047665}.

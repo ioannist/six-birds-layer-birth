@@ -1,0 +1,11 @@
+{
+  "name": "reversible_block_family",
+  "params": {
+    "n_blocks": 2,
+    "block_size": 4,
+    "intra_block_weight": 1.0,
+    "inter_block_weight": 0.5,
+    "self_weight": 0.0,
+    "topology": "ring"
+  }
+}

@@ -1,0 +1,10 @@
+# S2-04 replicated-portal refinement and P4 criterion audit
+
+- config path: `configs/pilots/class_iii_refinement_and_p4_audit.json`
+- artifact root: `results/pilots/class_iii_refinement_and_p4_audit`
+- refinement outcome: `{'strict_class_iii_found': False, 'replicated_portal_promising': True}`
+- criterion audit outcome: `{'criteria': {'strict_dual_shift': {'profile_active': {'class_i_reference': False, 'class_ii_reference': False, 'old_hidden_sector_128': False, 'old_two_timescale_128': False, 'replicated_portal_best_128': False, 'replicated_portal_best_256': False}, 'preserves_class_i_reference': True, 'preserves_class_ii_reference': True, 'rejects_old_surface_controls': True, 'accepts_bulk_candidate': False, 'persistent_acceptance': False, 'criterion_supported': False}, 'hybrid_ce_gated': {'profile_active': {'class_i_reference': False, 'class_ii_reference': False, 'old_hidden_sector_128': False, 'old_two_timescale_128': False, 'replicated_portal_best_128': True, 'replicated_portal_best_256': True}, 'preserves_class_i_reference': True, 'preserves_class_ii_reference': True, 'rejects_old_surface_controls': True, 'accepts_bulk_candidate': True, 'persistent_acceptance': True, 'criterion_supported': True}, 'mobj_only_shift': {'profile_active': {'class_i_reference': False, 'class_ii_reference': False, 'old_hidden_sector_128': False, 'old_two_timescale_128': False, 'replicated_portal_best_128': True, 'replicated_portal_best_256': True}, 'preserves_class_i_reference': True, 'preserves_class_ii_reference': True, 'rejects_old_surface_controls': True, 'accepts_bulk_candidate': True, 'persistent_acceptance': True, 'criterion_supported': True}}, 'recommended_p4_criterion': 'hybrid_ce_gated'}`
+- final verdict: `hybrid_criterion_supported_bulk_candidate_ready`
+- did any replicated-portal variant satisfy strict Class-III under the current rubric? `no`
+- is a revised P4 criterion justified by the audit? `yes`
+- if yes, which criterion is supported: strict / hybrid / mobj_only? `hybrid_ce_gated`

@@ -1,0 +1,11 @@
+# LB-19 Capacity / depth-growth extension
+
+- config path: `configs/campaigns/capacity_depth_extension.json`
+- artifact root: `results/campaigns/capacity_depth_extension`
+- representatives used: Class-I `reversible_block_family_equilibrium_like`, Class-II `driven_cycle_low_bias`, Class-III `replicated_portal_sp4`, Class-IV `replicated_portal_sp4_drive_f`
+- proxy summary: `{'Class-I': {'count': 3, 'lambda_headroom_mean': 0.12566176470588042, 'depth_survival_sat_mean': 8.0, 'objecthood_tau_area_sat_mean': 1.0, 'capacity_depth_index_mean': 1.0052941176470434}, 'Class-II': {'count': 3, 'lambda_headroom_mean': 0.44444444444444375, 'depth_survival_sat_mean': 8.0, 'objecthood_tau_area_sat_mean': 1.0, 'capacity_depth_index_mean': 3.55555555555555}, 'Class-III': {'count': 4, 'lambda_headroom_mean': 0.43833333333333296, 'depth_survival_sat_mean': 8.0, 'objecthood_tau_area_sat_mean': 1.0, 'capacity_depth_index_mean': 3.5066666666666637}, 'Class-IV': {'count': 4, 'lambda_headroom_mean': 0.44505212033172664, 'depth_survival_sat_mean': 8.0, 'objecthood_tau_area_sat_mean': 1.0, 'capacity_depth_index_mean': 3.560416962653813}}`
+- axis-effect summary: `{'per_proxy': {'lambda_headroom': {'p4_axis_effect': 7.285519336497941, 'p6_axis_effect': 6.533004539131177, 'p4_dominant_hit': False, 'p6_dominant_hit': False}, 'depth_survival_sat': {'p4_axis_effect': 0.0, 'p6_axis_effect': 0.0, 'p4_dominant_hit': False, 'p6_dominant_hit': False}, 'objecthood_tau_area_sat': {'p4_axis_effect': 0.0, 'p6_axis_effect': 0.0, 'p4_dominant_hit': False, 'p6_dominant_hit': False}, 'capacity_depth_index': {'p4_axis_effect': 7.285519336497941, 'p6_axis_effect': 6.533004539131177, 'p4_dominant_hit': False, 'p6_dominant_hit': False}}, 'capacity_tracks_p4_axis': False, 'capacity_tracks_p6_axis': False, 'capacity_orthogonal_or_mixed': True, 'final_verdict': 'capacity_orthogonal_or_mixed', 'capacity_primary_classifier': False}`
+- final verdict: `capacity_orthogonal_or_mixed`
+- does capacity/depth-growth appear to track class structure, or is it largely orthogonal/mixed? `largely orthogonal/mixed`
+- does the signal align more with the P4 axis, the P6 axis, or neither? `neither`
+- these are operational post-birth proxies, not theorem-level capacity quantities.

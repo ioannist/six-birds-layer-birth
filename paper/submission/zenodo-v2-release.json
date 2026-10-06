@@ -1,0 +1,17 @@
+{
+  "action": "created new-version draft",
+  "concept_record_id": "19047664",
+  "dashboard_url": "https://zenodo.org/uploads/23118249",
+  "doi": "10.5281/zenodo.23118249",
+  "doi_reservation": {
+    "client": "datacite",
+    "identifier": "10.5281/zenodo.23118249",
+    "provider": "datacite",
+    "verified_via": "rdm_pid_table"
+  },
+  "draft_id": 23118249,
+  "recorded_at": "2026-10-03T08:57:04+00:00",
+  "source_doi": "10.5281/zenodo.19047665",
+  "source_record_id": 19047665,
+  "source_title": "To Classify a Stone with Six Birds: Primitive Activation and Observable Separation of Layer-Birth Classes"
+}

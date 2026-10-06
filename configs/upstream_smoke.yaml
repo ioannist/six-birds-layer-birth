@@ -1,0 +1,10 @@
+{
+  "experiment_id": "upstream_smoke_baseline",
+  "vendored_path": "vendor/six-birds-pica-ma_snapshot_v71",
+  "vendored_entrypoint": "closurelab.numeric.empirical_endomap",
+  "output_root": "results/upstream_smoke",
+  "parameters": {
+    "tau": 2,
+    "lens_assignment": [0, 0, 1, 1]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "campaign_id": "holonomy_crossover",
+  "artifact_subdir": "holonomy_crossover",
+  "config_path_hint": "configs/campaigns/holonomy_crossover.json",
+  "findings_note_path": "notes/findings/LB-17_holonomy_crossover_campaign.md",
+  "base_kernel": {
+    "n_blocks": 2,
+    "block_size": 4,
+    "intra_block_weight": 1.0,
+    "inter_block_weight": 0.05,
+    "self_weight": 0.0
+  },
+  "cases": [
+    {
+      "case_name": "balanced",
+      "fine_block_sizes_by_coarse": [[2, 2], [2, 2]]
+    },
+    {
+      "case_name": "unbalanced",
+      "fine_block_sizes_by_coarse": [[1, 3], [1, 3]]
+    }
+  ],
+  "control_routes": [
+    {
+      "route_name": "direct",
+      "control_application_name": "mix_with_packaging_projector"
+    },
+    {
+      "route_name": "routed",
+      "control_application_name": "mix_with_routed_packaging_projector"
+    }
+  ],
+  "lambda_grid": [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1.0],
+  "tau_protocol": {
+    "name": "fixed",
+    "tau": 1
+  },
+  "birth_window_threshold": 0.1
+}

@@ -1,0 +1,11 @@
+{
+  "name": "metastable_block_family",
+  "params": {
+    "n_blocks": 2,
+    "block_size": 4,
+    "intra_scale": 1.0,
+    "inter_scale": 0.1,
+    "seed": 7,
+    "diagonal_bias": 1.0
+  }
+}

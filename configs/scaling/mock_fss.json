@@ -1,0 +1,17 @@
+{
+  "dataset_name": "mock_fss",
+  "sizes": [16, 32, 64],
+  "lambda_grid": [0.4, 0.45, 0.5, 0.55, 0.6],
+  "lambda_c_true": 0.5,
+  "beta_over_nu_true": 0.125,
+  "inv_nu_true": 1.0,
+  "replicate_count": 64,
+  "noise_sigma": 0.01,
+  "seed": 2026,
+  "lambda_c_grid": [0.45, 0.475, 0.5, 0.525, 0.55],
+  "beta_over_nu_grid": [0.05, 0.125, 0.2],
+  "inv_nu_grid": [0.75, 1.0, 1.25],
+  "collapse_bins": 12,
+  "bootstrap_replicates": 50,
+  "ci_percentiles": [5, 95]
+}

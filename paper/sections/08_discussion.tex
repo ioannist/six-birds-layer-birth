@@ -1,0 +1,28 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{What the paper establishes.} Layer births can be classified by which primitives switch on at birth. With packaging required, and drive and staging as independent switches, there are four canonical classes. Each class has an explicit representative that the decision rule labels correctly. For all four, the label is certified exactly on the declared grids. On a common observable map the four classes occupy distinct regions. None of this depends on critical exponents.
+
+\paragraph{How strong each part is.} The parts of the result do not carry equal weight.
+\begin{itemize}
+  \item \emph{Class-I versus Class-II} is the strongest part. The two classes share the structural switch and differ in drive. The difference is an exactly zero affinity against a certified positive one, and the controls confirm that the drive channel does not turn reversible dynamics into a false arrow.
+  \item \emph{Class-III} is strong within its channel. Its label is certified exactly, and Proposition~\ref{prop:lumpability} shows that it holds at every admissible size of the undriven family, not just the sizes we sampled.
+  \item \emph{Class-IV} is certified at four sizes (16--128). Its readings drift with size, and we make no claim beyond the sampled sizes.
+  \item \emph{Both staging classes} depend on the manual lens. Under the two automatic lenses we tested, staging activation disappears (a weaker $P4$-like signal survives for Class-IV only), and the labels revert to Class-I, Class-II, or unclassified.
+\end{itemize}
+
+\paragraph{How to read the lens dependence.} One reading is that the manual lens, which follows the known block structure of the family, is the right description, and that the automatic lenses group states in ways that hide the slow cross-block channel responsible for staging. Another reading is that staging, as measured here, is a property of the pair (system, lens) rather than of the system alone. Our data do not decide between these readings. What they do show is that staging births are more delicate to measure than drive births, and that any claim about them should state the lens. A natural next step is to search for automatic lenses that recover the manual partition, or to characterize the lenses under which staging is preserved.
+
+\paragraph{The two-level staging rule.} Requiring both structural boundaries to move ($P4_{\mathrm{dual}}\ge0.15$), rather than either one, does real work. Without it, the Class-II representative, whose closure boundary moves by $0.19$, would be counted as a staging birth. With it, and absent a boundary that appears or disappears between timescales, staging becomes a class label only when the closure and objecthood descriptions move together. The weaker one-channel signal is still recorded, as a $P4$-like signal.
+
+\paragraph{What the negative results say.} Two lines of investigation failed in instructive ways (Appendix~\ref{app:negative-results}). The holonomy experiments did not produce a clean crossover field: route mismatch either produced nothing class-relevant or acted only by leaking into the drive channel. This supports the decision, made on theoretical grounds, not to treat $P3$ as a class axis \cite{sixbirds_protocol_trap,liang_pigolotti_2023}. The finite-size-scaling fits did not stabilize. Exponent estimates moved with the fit grid and sat on the grid boundary, and adding a size did not help \cite{fisher_barber_1972,binder_1981_prl,ardourel_bangu_2023}. We therefore make no exponent claims. The observable map is more reliable than the fits because it is built from the class-defining observables themselves, not from the minimum of an unstable collapse objective.
+
+\paragraph{Staging classes as a place to look.} Class-III and Class-IV are the first classes in this taxonomy in which competing timescales are part of the birth's identity rather than a small correction. That makes them natural candidates for studying post-birth organization driven by competing timescales. This is a suggestion for future work. The present evidence does not demonstrate it.
+
+\paragraph{Open problems.} Four problems stand out:
+\begin{enumerate}
+  \item make the staging classes robust beyond the manual lens, or characterize exactly which lenses preserve them;
+  \item extend the Class-IV certificate beyond $N=128$, perhaps with a lumping argument adapted to the directed cycle;
+  \item decide whether the four classes are distinct universality classes in the asymptotic sense, which will need finite-size data that support stable fits;
+  \item obtain upstream kernels from native dynamics rather than compiled features, and find upstream realizations of Class-II through Class-IV.
+\end{enumerate}

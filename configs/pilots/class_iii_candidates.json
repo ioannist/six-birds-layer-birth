@@ -1,0 +1,54 @@
+{
+  "pilot_id": "class_iii_candidates_v1",
+  "artifact_subdir": "class_iii_candidates",
+  "shared": {
+    "sizes": [8],
+    "lambda_grid": [0.25, 0.4, 0.55, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0],
+    "analysis_lens": "manual_family_coarse_lens",
+    "lift_name": "uniform_lift_family",
+    "tau_values": [1, 2],
+    "control_application_name": "mix_with_packaging_projector"
+  },
+  "classification_conventions": {
+    "candidate_p5_state_rule": "active_if_either_tau_active",
+    "candidate_p6_source": "max_affinity_ref_across_tau",
+    "candidate_p4_state_rule": "active_iff_p4_class_active"
+  },
+  "candidates": [
+    {
+      "candidate_name": "delayed_interface",
+      "family_name": "delayed_interface_reversible_family",
+      "family_kwargs": {
+        "n": 8,
+        "core_core_weight": 1.0,
+        "core_interface_weight": 0.08,
+        "interface_cross_weight": 1.2,
+        "self_weight": 0.0
+      }
+    },
+    {
+      "candidate_name": "hidden_sector",
+      "family_name": "hidden_sector_reversible_family",
+      "family_kwargs": {
+        "n": 8,
+        "visible_weight": 1.0,
+        "hidden_weight": 1.0,
+        "visible_hidden_weight": 0.05,
+        "hidden_cross_weight": 1.2,
+        "self_weight": 0.0
+      }
+    },
+    {
+      "candidate_name": "two_timescale",
+      "family_name": "two_timescale_reversible_family",
+      "family_kwargs": {
+        "n": 8,
+        "fast_weight": 1.0,
+        "fast_portal_weight": 0.03,
+        "portal_cross_weight": 1.2,
+        "portal_self_weight": 0.5
+      }
+    }
+  ],
+  "findings_note_path": "notes/findings/S2-04_class_iii_candidate_pilots.md"
+}

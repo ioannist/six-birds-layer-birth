@@ -1,0 +1,32 @@
+{
+  "campaign_id": "class_ii_identifiability_audit",
+  "artifact_subdir": "class_ii_identifiability_audit",
+  "config_path_hint": "configs/campaigns/class_ii_identifiability_audit.json",
+  "findings_note_path": "notes/findings/LB-17_class_ii_identifiability_audit.md",
+  "inputs": {
+    "class_i_primary_group_summary": "results/campaigns/class_i_equilibrium/analysis/primary_group_summary.csv",
+    "class_i_fit_summary": "results/campaigns/class_i_equilibrium/analysis/fit_summary.json",
+    "class_ii_primary_group_summary": "results/campaigns/class_ii_driven/analysis/primary_group_summary.csv",
+    "class_ii_primary_raw_metrics": "results/campaigns/class_ii_driven/analysis/primary_raw_metrics.csv",
+    "class_ii_fit_summary": "results/campaigns/class_ii_driven/analysis/fit_summary.json",
+    "class_ii_comparison": "results/campaigns/class_ii_driven/analysis/comparison_to_class_i.json"
+  },
+  "auxiliary_tau2_panel": {
+    "sizes": [8, 16, 32, 64],
+    "self_weight": 0.1,
+    "forward_weight": 0.55,
+    "backward_weight": 0.35,
+    "lambda_grid": [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.9, 1.0],
+    "control_application_name": "mix_with_packaging_projector"
+  },
+  "fit_grid": {
+    "lambda_c_grid": [0.7, 0.725, 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95],
+    "beta_over_nu_grid": [0.0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2],
+    "inv_nu_grid": [0.25, 0.5, 0.75, 1.0, 1.25, 1.5],
+    "plateau_tolerance_fraction": 0.1,
+    "bootstrap_replicates": 25,
+    "ci_percentiles": [5, 95],
+    "collapse_bins": 12
+  },
+  "plateau_tolerance_fraction": 0.1
+}

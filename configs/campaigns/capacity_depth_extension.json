@@ -1,0 +1,53 @@
+{
+  "campaign_id": "capacity_depth_extension",
+  "artifact_subdir": "capacity_depth_extension",
+  "control_application_name": "mix_with_packaging_projector",
+  "tau_ladder": [1, 2, 4, 8],
+  "lambda_post_offset": 0.05,
+  "size_panel": [16, 32, 64, 128],
+  "representatives": {
+    "Class-I": {
+      "family_name": "reversible_block_family",
+      "intra_block_weight": 1.0,
+      "inter_block_weight": 0.25,
+      "self_weight": 0.0
+    },
+    "Class-II": {
+      "family_name": "driven_cycle_family",
+      "self_weight": 0.1,
+      "forward_weight": 0.55,
+      "backward_weight": 0.35
+    },
+    "Class-III": {
+      "family_name": "replicated_portal_reversible_family",
+      "base_kwargs": {
+        "fast_weight": 1.0,
+        "fast_portal_weight": 0.02,
+        "portal_cross_weight": 1.2,
+        "portal_self_weight": 4.0
+      }
+    },
+    "Class-IV": {
+      "family_name": "replicated_portal_reversible_family",
+      "base_kwargs": {
+        "fast_weight": 1.0,
+        "fast_portal_weight": 0.02,
+        "portal_cross_weight": 1.2,
+        "portal_self_weight": 4.0
+      },
+      "drive_kwargs": {
+        "drive_mix": 0.12,
+        "flow_total": 0.9,
+        "drive_bias": 0.12,
+        "drive_self_weight": 0.1
+      }
+    }
+  },
+  "sources": {
+    "class_i_ii_boundary_source": "results/dashboards/class_i_class_ii_consolidation/analysis/structural_boundary_proxies.json",
+    "class_i_ii_affinity_source": "results/dashboards/class_i_class_ii_consolidation/analysis/affinity_summary.json",
+    "class_iii_per_size_source": "results/campaigns/class_iii_full_campaign/analysis/per_size_diagnostics.csv",
+    "class_iv_per_size_source": "results/campaigns/class_iv_full_campaign/analysis/per_size_diagnostics.csv"
+  },
+  "findings_note_path": "notes/findings/LB-19_capacity_depth_extension.md"
+}

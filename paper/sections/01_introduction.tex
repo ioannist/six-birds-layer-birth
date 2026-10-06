@@ -1,0 +1,27 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Coarse-graining usually loses information. Occasionally, though, a coarse description becomes self-sufficient: its macrostates persist, the coarse dynamics reproduces them, and the description can be used without reference to the microscopic detail underneath. We call the onset of this behaviour a \emph{layer birth}. Earlier Six-Birds work developed the vocabulary for describing such events, showed that minimal stochastic substrates can be audited for structural and thermodynamic regimes, and established a constraint that shapes everything below: route mismatch (holonomy) on its own does not certify an arrow of time, so any claim of directionality has to be backed by an audit that actually carries drive \cite{sixbirds_foundations,sixbirds_create_stone,sixbirds_protocol_trap,liang_pigolotti_2023,seifert_2012}.
+
+Given that layer births happen, the next question is whether they are all of one kind. This paper argues that they are not, and that a small number of kinds can already be told apart by measurement.
+
+\paragraph{The idea.} The Six-Birds framework names six primitive operations ($P1$--$P6$, Section~\ref{sec:primitives-rubric}). We use three of them as on/off switches evaluated at the moment of birth:
+\begin{itemize}
+  \item \textbf{packaging} ($P5$): does the coarse description form stable objects?
+  \item \textbf{drive} ($P6_{\mathrm{drive}}$): is there directed circulation at the point where structure forms?
+  \item \textbf{staging} ($P4$): does the location of the birth move when the system is observed on a longer timescale?
+\end{itemize}
+Every birth has packaging by definition. The two remaining switches give four classes: Class-I (packaging only), Class-II (packaging and drive), Class-III (packaging and staging), and Class-IV (all three).
+
+\paragraph{What we show.}
+\begin{enumerate}
+  \item \emph{Operational definitions.} Each switch is defined through a small set of finite-state observables with fixed thresholds (Section~\ref{sec:observables-evidence}).
+  \item \emph{Exact certificates.} For the representative kernel of each class, the classification is reproduced in exact rational arithmetic on the declared grids. This gives ten certified (class, size) points. For the undriven Class-III family, a lumping argument extends the certificate to every admissible system size (Section~\ref{sec:exact-results}).
+  \item \emph{Class-I versus Class-II.} Both classes form structure, but only Class-II carries drive at birth. The contrast is between an affinity that is exactly zero and one that is clearly positive, and controls designed to produce false arrows do not produce them (Section~\ref{sec:class-i-ii}).
+  \item \emph{Class-III and Class-IV.} Staging can be strong enough to define a class. These classes persist across sizes 16--128 under the manual coarse-graining lens, but not under the two automatic lenses we tested (Section~\ref{sec:class-iii-iv}).
+  \item \emph{A common map.} At a common size, the four representatives occupy distinct regions of a three-coordinate observable map. Capacity/depth proxies and an upstream feature bridge are reported as supporting material, not as classifiers (Section~\ref{sec:observable-map-support}).
+\end{enumerate}
+
+\paragraph{What we do not show.} The results are finite and operational. We do not extract stable critical exponents, and our finite-size fits indicate that the data do not yet support doing so. We do not show that the staging classes are robust to arbitrary coarse-grainings. We do not claim that the upstream system realizes all four classes. The aim is to fix the vocabulary and the measurements that any later, asymptotic study of these classes would need to respect.
+
+Section~\ref{sec:primitives-rubric} introduces the primitives and the class table. Section~\ref{sec:observables-evidence} defines the observables and the decision rule. Section~\ref{sec:exact-results} collects the exact results. Sections~\ref{sec:class-i-ii}--\ref{sec:observable-map-support} present the evidence class by class and then together. Section~\ref{sec:discussion} discusses limitations. Proofs, rubric details, negative results, and the reproducibility ledger are in the appendices.

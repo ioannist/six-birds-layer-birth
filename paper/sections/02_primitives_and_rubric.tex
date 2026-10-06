@@ -1,0 +1,75 @@
+\section{Primitives and the four classes}
+\label{sec:primitives-rubric}
+
+The Six-Birds framework describes emergence with six primitive operations \cite{sixbirds_foundations}. Table~\ref{tab:six-birds-primitives} lists them together with the role each plays in this paper. Not every primitive is useful as a class label \cite{miller_primitives_2018}, so we restrict ourselves to the three that change \emph{what kind} of birth occurs.
+
+\begin{table}[tbp]
+\centering
+\caption{The six primitives and their role in this paper.}
+\label{tab:six-birds-primitives}
+\begin{tabularx}{\linewidth}{@{}l l Y@{}}
+\toprule
+Primitive & Name & Role here \\
+\midrule
+$P1$ & operator rewrite            & moves a system through parameter space toward birth; not a class label \\
+$P2$ & gating / support restriction & same as $P1$ \\
+$P3$ & holonomy / route mismatch   & diagnostic only; cannot certify a class on its own \\
+$P4$ & sectors / staging           & class axis when staging is strong enough (Section~\ref{sec:observables-evidence}) \\
+$P5$ & packaging                   & class axis; required for every birth \\
+$P6$ & audit / accounting          & class axis in its drive form, $P6_{\mathrm{drive}}$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Why only three axes.} Operator rewrite ($P1$) and gating ($P2$) describe how one approaches a birth, not what is born. Holonomy ($P3$) is excluded as an axis for a specific reason: earlier work showed that route mismatch can appear without any entropy production, so it cannot by itself certify directionality \cite{sixbirds_protocol_trap}. Consequently there is no ``holonomy-only'' class. Appendix~\ref{app:negative-results} records the experiments that tested this exclusion.
+
+This leaves three axes:
+\begin{itemize}
+  \item $P5$ records whether packaging has produced stable objects;
+  \item $P6_{\mathrm{drive}}$ records whether directed circulation is present at birth;
+  \item $P4$ records whether staging structure, meaning timescale- or depth-dependent structure that one observation channel sees and another does not, is strong enough to be part of the birth's identity.
+\end{itemize}
+
+\paragraph{The four classes.} Every birth has $P5$ active. The other two switches give the four combinations in Table~\ref{tab:canonical-layer-birth-classes} and Figure~\ref{fig:taxonomy}.
+
+\begin{table}[tbp]
+\centering
+\caption{The four layer-birth classes.}
+\label{tab:canonical-layer-birth-classes}
+\begin{tabular}{@{}lcccl@{}}
+\toprule
+Class & $P5$ & $P6_{\mathrm{drive}}$ & $P4$ & In words \\
+\midrule
+Class-I   & on & off & off & structure without drive \\
+Class-II  & on & on  & off & structure with drive \\
+Class-III & on & off & on  & structure with staging \\
+Class-IV  & on & on  & on  & structure with drive and staging \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[
+  cell/.style={draw=black!55, rounded corners=2pt, minimum width=4.6cm, minimum height=1.55cm, align=center, font=\small},
+  ax/.style={font=\small\itshape, text=black!70}]
+\node[cell, fill=blue!6]   (c1) at (0,0)     {\textbf{Class-I}\\ packaging only\\[1pt] \footnotesize Aff${}=0$, small $\tau$-shift};
+\node[cell, fill=orange!8] (c2) at (5.0,0)   {\textbf{Class-II}\\ packaging + drive\\[1pt] \footnotesize Aff${}>0$, small $\tau$-shift};
+\node[cell, fill=teal!8]   (c3) at (0,-1.9)  {\textbf{Class-III}\\ packaging + staging\\[1pt] \footnotesize Aff${}=0$, both boundaries shift};
+\node[cell, fill=violet!8] (c4) at (5.0,-1.9){\textbf{Class-IV}\\ packaging + drive + staging\\[1pt] \footnotesize Aff${}>0$, both boundaries shift};
+\node[ax] at (0,1.15)   {$P6_{\mathrm{drive}}$ off};
+\node[ax] at (5.0,1.15) {$P6_{\mathrm{drive}}$ on};
+\node[ax, rotate=90] at (-2.75,0)    {$P4$ off};
+\node[ax, rotate=90] at (-2.75,-1.9) {$P4$ on};
+\node[draw=black!40, dashed, rounded corners=4pt, inner sep=6pt, fit=(c1)(c2)(c3)(c4)] (box) {};
+\node[font=\small, text=black!70, anchor=north] at (box.south) {all four classes: $P5$ (packaging) on};
+\end{tikzpicture}
+\caption{The four classes as a $2\times 2$ grid. Packaging is required for a birth; drive (columns) and staging (rows) switch independently. The small text in each cell shows the signature of this paper's representative for that class. The general rule uses thresholds: drive is on for $\mathrm{Aff}_{\mathrm{ref}}\ge10^{-3}$ and off for $\mathrm{Aff}_{\mathrm{ref}}\le10^{-6}$ (Section~\ref{sec:observables-evidence}).}
+\label{fig:taxonomy}
+\end{figure}
+
+Two points about this table matter for the rest of the paper.
+
+\emph{The table is canonical, not exhaustive.} It lists the lowest-complexity combinations that are both motivated by the framework and measurable with the observables of Section~\ref{sec:observables-evidence}. We do not claim that no other kind of birth exists.
+
+\emph{A staging signal is not the same as staging activation.} A system can show some sensitivity to the observation timescale without that sensitivity being strong enough to define a class. The Class-I and Class-II representatives both show a weak staging signal and are still not staging classes. We call the weak version a \emph{$P4$-like signal} and reserve \emph{$P4$ activation} for the strict version defined in Section~\ref{sec:observables-evidence}. This two-level rule is what keeps the table from collapsing whenever a boundary moves slightly.

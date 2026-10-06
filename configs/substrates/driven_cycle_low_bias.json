@@ -1,0 +1,9 @@
+{
+  "name": "driven_cycle_family",
+  "params": {
+    "n": 8,
+    "self_weight": 0.1,
+    "forward_weight": 0.55,
+    "backward_weight": 0.35
+  }
+}

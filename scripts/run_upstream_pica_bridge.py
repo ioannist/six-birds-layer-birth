@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+from layerbirth.upstream_bridge import build_upstream_pica_bridge
+
+
+def main() -> None:
+    root = Path(__file__).resolve().parents[1]
+    summary = build_upstream_pica_bridge(
+        root / "configs" / "bridges" / "upstream_pica_bridge.json",
+        output_root=root / "results" / "bridges",
+        use_cache=True,
+    )
+    print(json.dumps(summary, indent=2))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,37 @@
+\section{Proofs of the exact results}
+\label{app:proofs}
+
+Throughout, $P$ is an $n\times n$ row-stochastic matrix, $Q$ is the $n\times k$ zero--one matrix of a surjective lens, and $U$ is a $k\times n$ stochastic lift with row $x$ supported on the fiber of $x$, so $UQ=I_k$. We set $P_\lambda=(1-\lambda)P+\lambda QU$, $A=P_\lambda^{\tau}Q$, $B=UA$, and $E=AU$.
+
+\begin{proof}[Proof of Proposition~\ref{prop:packaging}]
+Let $v\in\mathbb{R}^k$. The vector $vU$ places the mass $v_xU_{xj}$ on microstate $j$ in fiber $x$. Fibers are disjoint and $U_{xj}\ge0$, so $\|vU\|_1=\sum_x|v_x|\sum_jU_{xj}=\sum_x|v_x|=\|v\|_1$. Now $E^2=AUAU=ABU$. Hence $E_{i\cdot}-(E^2)_{i\cdot}=(A_{i\cdot}-(AB)_{i\cdot})U$, and the isometry gives the first formula.
+
+For $k=2$ with uniform lift on two blocks of equal size $h$, each row of $A$ is $(a_i,1-a_i)$. The macro kernel has entries $B_{00}=b_0$, $B_{01}=1-b_0$, $B_{10}=b_1$, $B_{11}=1-b_1$, where $b_0$ and $b_1$ are the block averages of $a$. Then $(AB)_{i0}=a_ib_0+(1-a_i)b_1$. Both rows sum to one, so $A_{i\cdot}-(AB)_{i\cdot}=(d_i,-d_i)$ with $d_i=a_i-a_ib_0-(1-a_i)b_1$, and half its $\ell_1$ norm is $|d_i|$. Finally $\operatorname{tr}B-1=b_0+(1-b_1)-1=b_0-b_1$, which gives $M_{\mathrm{obj}}=\operatorname{clip}(b_0-b_1,0,1)$ for $k=2$.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:reversal}]
+Let $x=a/b\ge1$ and $g(x)=\log x-2(x-1)/(x+1)$. Then $g(1)=0$ and $g'(x)=(x-1)^2/\bigl(x(x+1)^2\bigr)\ge0$, so $g\ge0$ on $[1,\infty)$. Multiplying $g(a/b)\ge0$ by $a-b\ge0$ gives $(a-b)\log(a/b)\ge2(a-b)(a-b)/(a+b)$. The case $a<b$ follows by exchanging $a$ and $b$, since both sides are symmetric. With the uniform stationary law, $J_{ij}=p_{ij}/n$. Each pair term of $D_{\mathrm{KL}}(J\|J^{\top})$ is nonnegative and bounded below as stated, and a pair with flux in one direction only contributes $+\infty$. A symmetric kernel has $J=J^{\top}$, hence zero divergence. The uniform law is stationary exactly when $P_\lambda$ is doubly stochastic. The bound is stated for this law: a reducible chain may have other stationary laws, for which it can fail. For the representatives this holds because $P$ is doubly stochastic and, for the uniform two-block lift, $QU$ is symmetric and doubly stochastic. Both facts are checked in exact arithmetic.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:lumpability}]
+Let $n=8m$, $m\ge2$, so each block has $m$ modules of three fast states and one portal. Denote the edge weights by $f$ (fast--fast), $g$ (fast--portal), $c$ (portal--cross-block portal), and $s$ (portal self-loop). Let $D=\max(2f+g,\,3g+c+s)>0$. The constructor adds $D-(2f+g)$ to each fast diagonal and $D-(3g+c+s)$ to each portal diagonal, then divides by $D$, which gives a symmetric stochastic $P$.
+
+Let $H$ be the $n\times4$ zero--one matrix sending each state to its type $(\text{fast}_0,\text{portal}_0,\text{fast}_1,\text{portal}_1)$. Every fast state sends total probability $g/D$ to its portal and $1-g/D$ to fast states of its own block. Every portal sends $3g/D$ to its fast states, $c/D$ to its partner portal, and $1-(3g+c)/D$ to itself. None of these totals depends on $m$, so $PH=HT$ with
+\[
+T=\begin{pmatrix}
+1-g/D & g/D & 0 & 0\\
+3g/D & 1-(3g+c)/D & 0 & c/D\\
+0 & 0 & 1-g/D & g/D\\
+0 & c/D & 3g/D & 1-(3g+c)/D
+\end{pmatrix}.
+\]
+Let $L$ be the $4\times2$ matrix sending types to blocks, and let $V$ be the $2\times4$ lift that gives each block its fast and portal types with weights $(3/4,1/4)$. Each block has $3m$ fast states and $m$ portals, so the uniform lift satisfies $UH=V$, and $Q=HL$. Therefore $(QU)H=HLUH=HLV$, and
+\[
+P_\lambda H=H R_\lambda,\qquad R_\lambda=(1-\lambda)T+\lambda LV,
+\]
+which is independent of $m$. By induction $P_\lambda^{\tau}H=HR_\lambda^{\tau}$, so $A=P_\lambda^{\tau}Q=HR_\lambda^{\tau}L$. The rows of $A$ depend only on the type of the state, and $UA=VR_\lambda^{\tau}L$ is independent of $m$. By Proposition~\ref{prop:packaging}, CE is the maximum of $\tfrac12\|A_{i\cdot}-(AUA)_{i\cdot}\|_1$ over states, and hence over the four types, all of which occur for $m\ge2$. $M_{\mathrm{obj}}=\operatorname{clip}(\operatorname{tr}(UA)-1,0,1)$. Neither depends on $m$. This holds for every $\lambda$ and $\tau$, so the boundaries, their shifts, and the presence or absence of crossings on any fixed grid are the same for all $m$. Finally, $P$ and $QU$ are symmetric, so $P_\lambda$ is symmetric and $\mathrm{Aff}=0$ by Proposition~\ref{prop:reversal}. This holds even when $P$ is reducible.
+\end{proof}
+
+\begin{remark}
+The argument uses strong lumpability of $P_\lambda$ itself. It does not assume that arbitrary micro observables descend through the two-block lens. Adding the global directed ring of the Class-IV family breaks this lumping. States of the same type no longer have the same transition probabilities to the four types: for example, along the ring only the last fast state of each module steps directly into a portal, and only the last portal of each block steps into the other block. The argument therefore does not extend to the driven family.
+\end{remark}

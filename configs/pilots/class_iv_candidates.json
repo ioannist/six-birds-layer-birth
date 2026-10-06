@@ -1,0 +1,46 @@
+{
+  "pilot_id": "class_iv_candidates",
+  "artifact_subdir": "class_iv_candidates",
+  "control_application_name": "mix_with_packaging_projector",
+  "base_candidate": {
+    "candidate_name": "replicated_portal_sp4",
+    "family_name": "replicated_portal_reversible_family",
+    "base_kwargs": {
+      "fast_weight": 1.0,
+      "fast_portal_weight": 0.02,
+      "portal_cross_weight": 1.2,
+      "portal_self_weight": 4.0
+    }
+  },
+  "lambda_grid": [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00],
+  "stage1_sizes": [32],
+  "stage2_top_k": 2,
+  "stage2_sizes": [32, 64],
+  "candidates": [
+    {
+      "candidate_name": "replicated_portal_sp4_drive_a",
+      "drive_kwargs": {"drive_mix": 0.02, "flow_total": 0.90, "drive_bias": 0.05, "drive_self_weight": 0.10}
+    },
+    {
+      "candidate_name": "replicated_portal_sp4_drive_b",
+      "drive_kwargs": {"drive_mix": 0.05, "flow_total": 0.90, "drive_bias": 0.05, "drive_self_weight": 0.10}
+    },
+    {
+      "candidate_name": "replicated_portal_sp4_drive_c",
+      "drive_kwargs": {"drive_mix": 0.08, "flow_total": 0.90, "drive_bias": 0.05, "drive_self_weight": 0.10}
+    },
+    {
+      "candidate_name": "replicated_portal_sp4_drive_d",
+      "drive_kwargs": {"drive_mix": 0.05, "flow_total": 0.90, "drive_bias": 0.10, "drive_self_weight": 0.10}
+    },
+    {
+      "candidate_name": "replicated_portal_sp4_drive_e",
+      "drive_kwargs": {"drive_mix": 0.08, "flow_total": 0.90, "drive_bias": 0.10, "drive_self_weight": 0.10}
+    },
+    {
+      "candidate_name": "replicated_portal_sp4_drive_f",
+      "drive_kwargs": {"drive_mix": 0.12, "flow_total": 0.90, "drive_bias": 0.12, "drive_self_weight": 0.10}
+    }
+  ],
+  "findings_note_path": "notes/findings/S2-06_class_iv_candidates.md"
+}

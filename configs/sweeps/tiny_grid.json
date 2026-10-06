@@ -1,0 +1,48 @@
+{
+  "sweep_id": "tiny_grid_v1",
+  "control_application_name": "mix_with_packaging_projector",
+  "closure_strength_lambda_grid": [0.25, 0.75],
+  "lens_grid": [
+    {
+      "name": "manual_family_block_lens"
+    }
+  ],
+  "lift_grid": [
+    {
+      "name": "uniform_lift_family",
+      "kwargs": {}
+    }
+  ],
+  "tau_protocol_grid": [
+    {
+      "name": "fixed",
+      "tau": 1
+    }
+  ],
+  "family_specs": [
+    {
+      "family_name": "reversible_block_family",
+      "size_grid": [8],
+      "seed_grid": [null],
+      "derive_block_size_from_size": true,
+      "family_params": {
+        "n_blocks": 2,
+        "intra_block_weight": 1.0,
+        "inter_block_weight": 0.25,
+        "self_weight": 0.0
+      }
+    },
+    {
+      "family_name": "metastable_block_family",
+      "size_grid": [8],
+      "seed_grid": [7, 11],
+      "derive_block_size_from_size": true,
+      "family_params": {
+        "n_blocks": 2,
+        "intra_scale": 1.0,
+        "inter_scale": 0.25,
+        "diagonal_bias": 1.0
+      }
+    }
+  ]
+}

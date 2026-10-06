@@ -1,0 +1,86 @@
+{
+  "family_name": "driven_low_bias",
+  "artifact_subdir": "driven_low_bias",
+  "config_path_hint": "configs/robustness/driven_low_bias_robustness.json",
+  "findings_note_path": "notes/findings/LB-13_robustness_driven_low_bias.md",
+  "baseline_variant_name": "baseline_fixed_manual_uniform",
+  "baseline_window": [0.5, 0.75],
+  "control_application_name": "mix_with_packaging_projector",
+  "lambda_grid": [0.0, 0.25, 0.5, 0.75, 1.0],
+  "family": {
+    "name": "driven_cycle_family",
+    "params": {
+      "n": 8,
+      "self_weight": 0.1,
+      "forward_weight": 0.55,
+      "backward_weight": 0.35
+    }
+  },
+  "variants": [
+    {
+      "name": "baseline_fixed_manual_uniform",
+      "group": "baseline",
+      "tau": { "mode": "fixed", "tau": 1 },
+      "lens": { "name": "manual_partition_lens", "labels": [0, 0, 0, 0, 1, 1, 1, 1] },
+      "lift": { "name": "uniform_lift_family" }
+    },
+    {
+      "name": "adaptive_manual_uniform",
+      "group": "tau",
+      "tau": {
+        "mode": "adaptive",
+        "method": "spectral_gap_scaled",
+        "alpha": 1.0,
+        "gap_floor": 1e-8,
+        "tau_min": 1,
+        "tau_max": 32
+      },
+      "lens": { "name": "manual_partition_lens", "labels": [0, 0, 0, 0, 1, 1, 1, 1] },
+      "lift": { "name": "uniform_lift_family" }
+    },
+    {
+      "name": "matched_manual_uniform",
+      "group": "tau",
+      "tau": {
+        "mode": "matched",
+        "reference_lambda": 0.5,
+        "base_adaptive": {
+          "method": "spectral_gap_scaled",
+          "alpha": 1.0,
+          "gap_floor": 1e-8,
+          "tau_min": 1,
+          "tau_max": 32
+        }
+      },
+      "lens": { "name": "manual_partition_lens", "labels": [0, 0, 0, 0, 1, 1, 1, 1] },
+      "lift": { "name": "uniform_lift_family" }
+    },
+    {
+      "name": "fixed_spectral_uniform",
+      "group": "lens",
+      "tau": { "mode": "fixed", "tau": 1 },
+      "lens": {
+        "name": "spectral_sign_pattern_lens",
+        "kwargs": { "tau": 1, "target_k": 2 }
+      },
+      "lift": { "name": "uniform_lift_family" }
+    },
+    {
+      "name": "fixed_diffusion_uniform",
+      "group": "lens",
+      "tau": { "mode": "fixed", "tau": 1 },
+      "lens": {
+        "name": "diffusion_quantile_lens",
+        "kwargs": { "tau": 1, "target_k": 2 }
+      },
+      "lift": { "name": "uniform_lift_family" }
+    },
+    {
+      "name": "fixed_manual_prototype",
+      "group": "lift",
+      "tau": { "mode": "fixed", "tau": 1 },
+      "lens": { "name": "manual_partition_lens", "labels": [0, 0, 0, 0, 1, 1, 1, 1] },
+      "lift": { "name": "prototype_lift_family", "kwargs": { "strategy": "first_in_fiber" } }
+    }
+  ]
+}

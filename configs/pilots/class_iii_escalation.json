@@ -1,0 +1,39 @@
+{
+  "escalation_id": "class_iii_escalation_v1",
+  "artifact_subdir": "class_iii_escalation",
+  "stage1": {
+    "sizes": [8, 16],
+    "lambda_grid": [0.55, 0.6, 0.625, 0.65, 0.675, 0.7, 0.75, 0.775, 0.8, 0.825, 0.85, 0.9, 0.95, 1.0],
+    "control_application_name": "mix_with_packaging_projector",
+    "families": [
+      {
+        "family_name": "hidden_sector_reversible_family",
+        "fixed": {
+          "visible_weight": 1.0,
+          "hidden_weight": 1.0,
+          "self_weight": 0.0
+        },
+        "param_grid": {
+          "visible_hidden_weight": [0.05, 0.02, 0.01],
+          "hidden_cross_weight": [1.2, 1.6]
+        }
+      },
+      {
+        "family_name": "two_timescale_reversible_family",
+        "fixed": {
+          "fast_weight": 1.0
+        },
+        "param_grid": {
+          "fast_portal_weight": [0.03, 0.01],
+          "portal_cross_weight": [1.2, 1.6],
+          "portal_self_weight": [0.5, 1.0]
+        }
+      }
+    ]
+  },
+  "stage2": {
+    "top_k": 2,
+    "size": 32
+  },
+  "findings_note_path": "notes/findings/S2-04_class_iii_escalation.md"
+}

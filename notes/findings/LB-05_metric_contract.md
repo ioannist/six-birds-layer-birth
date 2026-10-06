@@ -1,0 +1,23 @@
+# LB-05 metric contract
+
+- Defaults:
+  - CE: `idempotence_defect_tv` on `E_{tau,f} = P^tau Q_f U_f`.
+  - M_obj: `soft_stable_count_normalized` from per-macro retention errors.
+  - SG: `spectral_separation_gap` on sorted absolute eigenvalues of `P^tau`.
+  - Aff: `entropy_production_rate` from stationary one-step fluxes.
+  - Hol: `lift_route_mismatch_tv` comparing direct coarse lift vs composed fine route.
+- Alternates kept in reserve:
+  - CE: `retention_error_max`, `fiber_level_mismatch_max`.
+  - M_obj: `soft_stable_fraction`, `thresholded_object_count`, `stable_count_soft`.
+  - SG: `spectral_separation_ratio`, `macro_relaxation_gap`.
+  - Aff: `flux_l1_asymmetry`, `edge_log_ratio_rms`.
+  - Hol: `lift_route_mismatch_frobenius`, `dynamic_macro_route_mismatch_tv`.
+- Default toy outputs:
+  - Exact closure: `CE=0`, `M_obj=1`, `SG=1`, `Aff=0`, `Hol=0`.
+  - Reversible: `CE=0.1`, `M_obj=0.8`, `SG≈0.2828427125`, `Aff≈0`.
+  - Driven cycle: `CE=0.36`, `M_obj=0.1`, `SG≈0.0928932188`, `Aff≈1.4556090792`.
+  - Trivial one-object: `CE=0`, `M_obj=0`, `SG=1`, `Aff=0`.
+  - Auxiliary holonomy: `Hol=1/6≈0.1666666667`.
+- Provisional notes:
+  - Aff stationary estimate uses power iteration from uniform and can depend on initialization for reducible chains.
+  - Hol is a first-pass structural route-mismatch proxy and remains provisional for richer dynamic formulations.

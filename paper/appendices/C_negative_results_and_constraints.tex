@@ -1,0 +1,33 @@
+\section{Negative results and limits}
+\label{app:negative-results}
+
+Several stronger claims were tested and not retained. They are collected here because they define the scope of the main result. Table~\ref{tab:appendix-negative-constraints} summarizes them.
+
+\paragraph{Holonomy is not a crossover field.} We tested whether route mismatch ($P3$) could shift the birth on its own. In the first family, one of the two cases with nonzero holonomy (the routed one) also picked up a small affinity ($1.7\times10^{-3}$), so its effect could not be separated from drive. In a refined family the affinity contamination was removed, but holonomy then produced no shift of the birth location, no change in the presence of the birth window, and only negligible change in curve shape (at most $3.7\times10^{-3}$). Route mismatch therefore either did nothing class-relevant or acted through the drive channel. This matches the framework's prior decision to keep $P3$ diagnostic \cite{sixbirds_protocol_trap}.
+
+\paragraph{Exponents are not identifiable.} Finite-size-scaling collapse fits were run for the Class-I and Class-II families. The objective is a heuristic: a sum of pairwise curve mismatch, spread in raw $\lambda$, and a weighted slope penalty. It is not a pure collapse criterion. The best fits sat on the boundary of the search grid. On the enlarged grid the Class-I optimum moved to a trivial solution ($\lambda_c=1$ with both exponent coordinates zero), and the Class-II optimum sat at $\lambda_c=0.875$, also with both exponent coordinates zero. Adding a size of 128 changed neither picture. Where bootstrap intervals were reported they collapsed to a single point. They are conditional on the objective and the grid. Because the primary grouped observations have a single replicate per (size, $\lambda$), resampling supplies no sampling variability, so the intervals do not measure the precision of an exponent. We make no exponent claims.
+
+\paragraph{Staging classes are lens-dependent.} See Table~\ref{tab:class-iii-iv-lens-caveat}. Under both automatic lenses, Class-III is relabelled Class-I. Class-IV becomes unclassified ($N=32$) or Class-II ($N=128$).
+
+\paragraph{Capacity is not a classifier.} Under the packaging control, the capacity--depth index equals $(1-\lambda_{\mathrm{birth}})\,\tau_{\max}$, where $\lambda_{\mathrm{birth}}$ is the capacity campaign's structural boundary proxy (Section~\ref{sec:observable-map-support}). It carries no information beyond that structural coordinate, and its alignment with the drive and staging axes is mixed.
+
+\paragraph{The upstream bridge is partial.} The three upstream-derived kernels are built from compiled features plus an artificial preference-gradient term, not from native upstream dynamics, and all three land in Class-I.
+
+\begin{table}[tbp]
+\centering
+\small
+\caption{Stronger claims that were tested and not retained.}
+\label{tab:appendix-negative-constraints}
+\begin{tabularx}{\linewidth}{@{}L{0.27\linewidth}L{0.2\linewidth}Y@{}}
+\toprule
+Claim tested & Outcome & Consequence \\
+\midrule
+Holonomy as an independent crossover field & not supported & $P3$ is not a class axis \\
+Stable exponent extraction & not supported & no exponent or universality claims \\
+Lens robustness of Class-III / IV & not supported for the two automatic lenses & staging claims are made for the manual lens \\
+Capacity as a classifier & not supported; algebraically tied to the structural boundary & capacity reported as post-birth description only \\
+Upstream realization of all four classes & not supported & bridge shown as an overlay of three Class-I kernels \\
+Class-IV at all sizes & not established & certified at $N=16$--$128$ only \\
+\bottomrule
+\end{tabularx}
+\end{table}

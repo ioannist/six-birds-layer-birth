@@ -1,0 +1,455 @@
+{
+  "freeze_id": "reproducibility_freeze",
+  "artifact_subdir": "reproducibility_freeze",
+  "findings_note_path": "notes/findings/F-06_reproducibility_freeze.md",
+  "claims": [
+    {
+      "claim_id": "CLAIM-01",
+      "description": "Canonical four-class taxonomy exists and current references classify cleanly.",
+      "asset_names": [
+        "canonical_class_rubric",
+        "four_class_synthesis",
+        "class_i_representative",
+        "class_ii_representative",
+        "class_iii_representative",
+        "class_iv_representative"
+      ]
+    },
+    {
+      "claim_id": "CLAIM-02",
+      "description": "Class-I vs Class-II are robustly separated without exponent claims.",
+      "asset_names": [
+        "class_i_representative",
+        "class_ii_representative",
+        "class_i_class_ii_consolidation"
+      ]
+    },
+    {
+      "claim_id": "CLAIM-03",
+      "description": "Four confirmed classes are visibly separable in measured observable space.",
+      "asset_names": [
+        "four_class_observable_map",
+        "four_class_synthesis"
+      ]
+    },
+    {
+      "claim_id": "CLAIM-04",
+      "description": "Class-III is confirmed under the current strict rubric.",
+      "asset_names": [
+        "class_iii_strict_confirmation_v2",
+        "class_iii_representative"
+      ]
+    },
+    {
+      "claim_id": "CLAIM-05",
+      "description": "Class-III / Class-IV have usable phenomenology panels in the canonical manual channel.",
+      "asset_names": [
+        "class_iii_shadow_panel",
+        "class_iv_shadow_panel"
+      ]
+    },
+    {
+      "claim_id": "CLAIM-06",
+      "description": "Capacity/depth behaves as a post-birth field rather than a primary classifier.",
+      "asset_names": [
+        "capacity_postcritical_dashboard"
+      ]
+    },
+    {
+      "claim_id": "CLAIM-07",
+      "description": "At least one real upstream/PICA-style system can be placed on the same comparison assets.",
+      "asset_names": [
+        "upstream_pica_bridge"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "asset_name": "class_i_representative",
+      "asset_tier": "critical",
+      "bundle_root": "results/campaigns/class_i_equilibrium",
+      "required_files": [
+        "manifest.json",
+        "analysis/fit_summary.json",
+        "analysis/primary_group_summary.csv",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/fit_summary.json",
+        "analysis/primary_group_summary.csv",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_class_i_scaling_campaign.py",
+      "claim_ids": [
+        "CLAIM-01",
+        "CLAIM-02"
+      ]
+    },
+    {
+      "asset_name": "class_ii_representative",
+      "asset_tier": "critical",
+      "bundle_root": "results/campaigns/class_ii_driven",
+      "required_files": [
+        "manifest.json",
+        "analysis/comparison_to_class_i.json",
+        "analysis/fit_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/comparison_to_class_i.json",
+        "analysis/fit_summary.json"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_class_ii_scaling_campaign.py",
+      "claim_ids": [
+        "CLAIM-01",
+        "CLAIM-02"
+      ]
+    },
+    {
+      "asset_name": "class_iii_representative",
+      "asset_tier": "critical",
+      "bundle_root": "results/campaigns/class_iii_full_campaign",
+      "required_files": [
+        "manifest.json",
+        "analysis/campaign_summary.json",
+        "analysis/per_size_diagnostics.csv",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/campaign_summary.json",
+        "analysis/per_size_diagnostics.csv",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_class_iii_full_campaign.py",
+      "claim_ids": [
+        "CLAIM-01",
+        "CLAIM-04"
+      ],
+      "evidence_checks": [
+        {
+          "path": "analysis/campaign_summary.json",
+          "field": "class_iii_across_checked_sizes",
+          "equals": true
+        }
+      ]
+    },
+    {
+      "asset_name": "class_iv_representative",
+      "asset_tier": "critical",
+      "bundle_root": "results/campaigns/class_iv_full_campaign",
+      "required_files": [
+        "manifest.json",
+        "analysis/campaign_summary.json",
+        "analysis/per_size_diagnostics.csv",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/campaign_summary.json",
+        "analysis/per_size_diagnostics.csv",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_class_iv_full_campaign.py",
+      "claim_ids": [
+        "CLAIM-01"
+      ],
+      "evidence_checks": [
+        {
+          "path": "analysis/campaign_summary.json",
+          "field": "class_iv_across_checked_sizes",
+          "equals": true
+        }
+      ]
+    },
+    {
+      "asset_name": "class_i_class_ii_consolidation",
+      "asset_tier": "critical",
+      "bundle_root": "results/dashboards/class_i_class_ii_consolidation",
+      "required_files": [
+        "manifest.json",
+        "analysis/reference_summary.json",
+        "analysis/consolidation_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/reference_summary.json",
+        "analysis/consolidation_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_class_i_class_ii_consolidation.py",
+      "claim_ids": [
+        "CLAIM-02"
+      ],
+      "evidence_checks": [
+        {
+          "path": "analysis/consolidation_summary.json",
+          "field": "publishable_non_exponent_claim_supported",
+          "equals": true
+        },
+        {
+          "path": "analysis/consolidation_summary.json",
+          "field": "no_fake_arrow_checks_passed",
+          "equals": true
+        }
+      ]
+    },
+    {
+      "asset_name": "four_class_synthesis",
+      "asset_tier": "critical",
+      "bundle_root": "results/dashboards/four_class_synthesis",
+      "required_files": [
+        "manifest.json",
+        "analysis/dashboard_summary.json",
+        "analysis/class_activation_table.csv",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/dashboard_summary.json",
+        "analysis/class_activation_table.csv",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_four_class_synthesis_dashboard.py",
+      "claim_ids": [
+        "CLAIM-01",
+        "CLAIM-03"
+      ],
+      "evidence_checks": [
+        {
+          "path": "analysis/dashboard_summary.json",
+          "field": "all_four_classes_programmatically_separable",
+          "equals": true
+        },
+        {
+          "path": "analysis/dashboard_summary.json",
+          "field": "no_fake_arrow_checks_passed",
+          "equals": true
+        }
+      ]
+    },
+    {
+      "asset_name": "four_class_observable_map",
+      "asset_tier": "critical",
+      "bundle_root": "results/dashboards/four_class_observable_map",
+      "required_files": [
+        "manifest.json",
+        "analysis/class_coordinates.json",
+        "analysis/separation_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/class_coordinates.json",
+        "analysis/separation_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_four_class_observable_map.py",
+      "claim_ids": [
+        "CLAIM-03"
+      ],
+      "evidence_checks": [
+        {
+          "path": "analysis/separation_summary.json",
+          "field": "observable_map_separable",
+          "equals": true
+        },
+        {
+          "path": "analysis/separation_summary.json",
+          "field": "phase_map_figure_publishable",
+          "equals": true
+        }
+      ]
+    },
+    {
+      "asset_name": "capacity_postcritical_dashboard",
+      "asset_tier": "critical",
+      "bundle_root": "results/dashboards/capacity_postcritical_dashboard",
+      "required_files": [
+        "manifest.json",
+        "analysis/representative_capacity_table.json",
+        "analysis/capacity_dashboard_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/representative_capacity_table.json",
+        "analysis/capacity_dashboard_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_capacity_postcritical_dashboard.py",
+      "claim_ids": [
+        "CLAIM-06"
+      ],
+      "evidence_checks": [
+        {
+          "path": "analysis/capacity_dashboard_summary.json",
+          "field": "capacity_postcritical_story_supported",
+          "equals": true
+        }
+      ]
+    },
+    {
+      "asset_name": "upstream_pica_bridge",
+      "asset_tier": "critical",
+      "bundle_root": "results/bridges/upstream_pica_bridge",
+      "required_files": [
+        "manifest.json",
+        "analysis/upstream_candidate_table.json",
+        "analysis/upstream_bridge_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/upstream_candidate_table.json",
+        "analysis/upstream_bridge_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_upstream_pica_bridge.py",
+      "claim_ids": [
+        "CLAIM-07"
+      ],
+      "evidence_checks": [
+        {
+          "path": "analysis/upstream_bridge_summary.json",
+          "field": "upstream_bridge_success",
+          "equals": true
+        }
+      ]
+    },
+    {
+      "asset_name": "canonical_class_rubric",
+      "asset_tier": "supporting",
+      "bundle_root": "results/taxonomy/canonical_class_rubric",
+      "required_files": [
+        "manifest.json",
+        "analysis/canonical_taxonomy.json",
+        "analysis/reference_classifications.json",
+        "analysis/primitive_activation_table.csv",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/canonical_taxonomy.json",
+        "analysis/reference_classifications.json",
+        "analysis/primitive_activation_table.csv",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_canonical_class_rubric.py",
+      "claim_ids": [
+        "CLAIM-01"
+      ],
+      "evidence_checks": [
+        {
+          "path": "analysis/reference_classifications.json",
+          "field": "reference_classifications.0.canonical_class_label",
+          "equals": "Class-I"
+        },
+        {
+          "path": "analysis/reference_classifications.json",
+          "field": "reference_classifications.1.canonical_class_label",
+          "equals": "Class-II"
+        }
+      ]
+    },
+    {
+      "asset_name": "p4_anomaly_metric_layer",
+      "asset_tier": "supporting",
+      "bundle_root": "results/metrics/p4_anomaly_metric_layer",
+      "required_files": [
+        "manifest.json",
+        "analysis/reference_p4_metrics.json",
+        "analysis/reference_p4_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/reference_p4_metrics.json",
+        "analysis/reference_p4_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_p4_anomaly_metric_layer.py",
+      "claim_ids": [
+        "CLAIM-01"
+      ]
+    },
+    {
+      "asset_name": "class_iii_strict_confirmation_v2",
+      "asset_tier": "supporting",
+      "bundle_root": "results/pilots/class_iii_strict_confirmation_v2",
+      "required_files": [
+        "manifest.json",
+        "analysis/confirmation_table.csv",
+        "analysis/confirmation_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/confirmation_table.csv",
+        "analysis/confirmation_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_class_iii_strict_confirmation_v2.py",
+      "claim_ids": [
+        "CLAIM-04"
+      ],
+      "evidence_checks": [
+        {
+          "path": "analysis/confirmation_summary.json",
+          "field": "overall.final_verdict",
+          "equals": "strict_class_iii_confirmed"
+        }
+      ]
+    },
+    {
+      "asset_name": "class_iii_shadow_panel",
+      "asset_tier": "supporting",
+      "bundle_root": "results/phenomenology/class_iii_shadow_panel",
+      "required_files": [
+        "manifest.json",
+        "analysis/admissibility_summary.json",
+        "analysis/panel_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/admissibility_summary.json",
+        "analysis/panel_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_class_iii_class_iv_shadow_panel.py",
+      "claim_ids": [
+        "CLAIM-05"
+      ],
+      "evidence_checks": [
+        {
+          "path": "analysis/panel_summary.json",
+          "field": "usable_chi_u4_panel",
+          "equals": true
+        }
+      ]
+    },
+    {
+      "asset_name": "class_iv_shadow_panel",
+      "asset_tier": "supporting",
+      "bundle_root": "results/phenomenology/class_iv_shadow_panel",
+      "required_files": [
+        "manifest.json",
+        "analysis/admissibility_summary.json",
+        "analysis/panel_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "key_output_paths": [
+        "analysis/admissibility_summary.json",
+        "analysis/panel_summary.json",
+        "metrics/metrics.csv"
+      ],
+      "rerun_entrypoint": "python3 scripts/run_class_iii_class_iv_shadow_panel.py",
+      "claim_ids": [
+        "CLAIM-05"
+      ],
+      "evidence_checks": [
+        {
+          "path": "analysis/panel_summary.json",
+          "field": "usable_chi_u4_panel",
+          "equals": true
+        }
+      ]
+    }
+  ],
+  "nonblocking_caveats": [
+    "Class-III/Class-IV lens robustness outside manual channel remains partial/fragile (F-01).",
+    "Exponent/universality claims remain intentionally softened.",
+    "Upstream bridge may classify as mixed/unclear while still serving external-validity overlay."
+  ]
+}

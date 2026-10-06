@@ -1,0 +1,27 @@
+{
+  "dashboard_id": "class_i_class_ii_consolidation_v1",
+  "artifact_subdir": "class_i_class_ii_consolidation",
+  "sources": {
+    "taxonomy_bundle_root": "results/taxonomy/canonical_class_rubric",
+    "class_i_bundle_root": "results/campaigns/class_i_equilibrium",
+    "class_ii_bundle_root": "results/campaigns/class_ii_driven",
+    "alignment_bundle_root": "results/campaigns/structural_affinity_alignment",
+    "robustness_class_i_root": "results/robustness/equilibrium_like",
+    "robustness_class_ii_root": "results/robustness/driven_low_bias",
+    "arrow_controls_root": "results/control_smoke/arrow_controls"
+  },
+  "conventions": {
+    "class_i_profile_name": "class_i_reference",
+    "class_ii_profile_name": "class_ii_reference",
+    "representative_size": 32,
+    "affinity_onset_thresholds": [0.001, 0.01, 0.05],
+    "ce_target": 0.025,
+    "mobj_target": 0.9
+  },
+  "publishable_claim_rule": {
+    "affinity_contrast_ratio_min": 1000.0,
+    "affinity_contrast_difference_min": 0.01,
+    "no_fake_arrow_false_positive_max": 0
+  },
+  "findings_note_path": "notes/findings/S2-02_class_i_class_ii_consolidation.md"
+}

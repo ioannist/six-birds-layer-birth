@@ -1,0 +1,41 @@
+{
+  "campaign_id": "class_i_equilibrium",
+  "artifact_subdir": "class_i_equilibrium",
+  "config_path_hint": "configs/campaigns/class_i_equilibrium_scaling.json",
+  "findings_note_path": "notes/findings/LB-15_class_i_scaling_campaign.md",
+  "primary_panel": {
+    "family_name": "reversible_block_family",
+    "n_blocks": 2,
+    "sizes": [8, 16, 32, 64],
+    "intra_block_weight": 1.0,
+    "inter_block_weight": 0.25,
+    "self_weight": 0.0,
+    "lens_name": "manual_family_block_lens",
+    "lift_name": "uniform_lift_family",
+    "tau_protocol": { "name": "fixed", "tau": 1 },
+    "control_application_name": "mix_with_packaging_projector",
+    "lambda_grid": [0.55, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0]
+  },
+  "shadow_panel": {
+    "family_name": "metastable_block_family",
+    "n_blocks": 2,
+    "sizes": [8, 16, 32, 64],
+    "intra_scale": 1.0,
+    "inter_scale": 0.25,
+    "diagonal_bias": 1.0,
+    "seeds": [7, 11, 13, 17, 19, 23],
+    "lens_name": "manual_family_block_lens",
+    "lift_name": "uniform_lift_family",
+    "tau_protocol": { "name": "fixed", "tau": 1 },
+    "control_application_name": "mix_with_packaging_projector",
+    "lambda_grid": [0.55, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0]
+  },
+  "fit_grid": {
+    "lambda_c_grid": [0.7, 0.75, 0.8, 0.85, 0.9, 0.95],
+    "beta_over_nu_grid": [0.0, 0.05, 0.1, 0.125, 0.15, 0.2],
+    "inv_nu_grid": [0.5, 0.75, 1.0, 1.25, 1.5],
+    "bootstrap_replicates": 50,
+    "ci_percentiles": [5, 95],
+    "collapse_bins": 12
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "campaign_id": "class_iv_full_campaign",
+  "artifact_subdir": "class_iv_full_campaign",
+  "control_application_name": "mix_with_packaging_projector",
+  "size_panel": [16, 32, 64, 128],
+  "lambda_grid": [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00],
+  "candidate": {
+    "candidate_name": "replicated_portal_sp4_drive_f",
+    "base_candidate_name": "replicated_portal_sp4",
+    "family_name": "replicated_portal_reversible_family",
+    "base_kwargs": {
+      "fast_weight": 1.0,
+      "fast_portal_weight": 0.02,
+      "portal_cross_weight": 1.2,
+      "portal_self_weight": 4.0
+    },
+    "drive_kwargs": {
+      "drive_mix": 0.12,
+      "flow_total": 0.9,
+      "drive_bias": 0.12,
+      "drive_self_weight": 0.1
+    }
+  },
+  "findings_note_path": "notes/findings/S2-07_class_iv_full_campaign.md"
+}

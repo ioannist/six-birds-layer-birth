@@ -1,0 +1,57 @@
+{
+  "pilot_id": "class_iii_bulk_persistence_v1",
+  "artifact_subdir": "class_iii_bulk_persistence",
+  "control_application_name": "mix_with_packaging_projector",
+  "low_lambda_grid": [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.55, 0.6, 0.7, 0.8, 0.9, 1.0],
+  "group1_old_controls": [
+    {
+      "candidate_name": "hidden_sector",
+      "family_name": "hidden_sector_reversible_family",
+      "family_kwargs": {
+        "visible_weight": 1.0,
+        "hidden_weight": 1.0,
+        "visible_hidden_weight": 0.05,
+        "hidden_cross_weight": 1.2,
+        "self_weight": 0.0
+      }
+    },
+    {
+      "candidate_name": "two_timescale",
+      "family_name": "two_timescale_reversible_family",
+      "family_kwargs": {
+        "fast_weight": 1.0,
+        "fast_portal_weight": 0.03,
+        "portal_cross_weight": 1.2,
+        "portal_self_weight": 0.5
+      }
+    }
+  ],
+  "group2_new_bulk": [
+    {
+      "candidate_name": "distributed_hidden_sector",
+      "family_name": "distributed_hidden_sector_reversible_family",
+      "fixed": {
+        "visible_visible_weight": 1.0,
+        "hidden_hidden_weight": 1.0,
+        "self_weight": 0.0
+      },
+      "param_grid": {
+        "visible_hidden_weight": [0.02, 0.01],
+        "hidden_cross_weight": [1.2, 1.6]
+      }
+    },
+    {
+      "candidate_name": "replicated_portal",
+      "family_name": "replicated_portal_reversible_family",
+      "fixed": {
+        "fast_weight": 1.0
+      },
+      "param_grid": {
+        "fast_portal_weight": [0.02, 0.01],
+        "portal_cross_weight": [1.2, 1.6],
+        "portal_self_weight": [0.5, 1.0]
+      }
+    }
+  ],
+  "findings_note_path": "notes/findings/S2-04_class_iii_bulk_persistence.md"
+}

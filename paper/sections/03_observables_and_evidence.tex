@@ -1,0 +1,90 @@
+\section{How the classes are measured}
+\label{sec:observables-evidence}
+
+This section sets out the finite-state setting, the three observable channels, and the rule that turns measurements into a class label. Everything is operational: the observables are computed on sampled parameter grids at finite system sizes, and the thresholds are conventions of this taxonomy rather than universal constants.
+
+\subsection{Setting}
+
+A system is a row-stochastic kernel $P$ on $n$ microstates. A \emph{lens} groups microstates into $k$ macrostates. We write it as an $n\times k$ zero--one matrix $Q$, with $Q_{ix}=1$ when microstate $i$ belongs to macrostate $x$. A \emph{lift} is a $k\times n$ stochastic matrix $U$ whose row $x$ is supported on the microstates of macrostate $x$, so that $UQ=I_k$. In the canonical analysis the lens has two equal blocks ($k=2$), chosen by hand from the known block structure of each family (the \emph{manual lens}), and the lift is uniform on each block.
+
+Packaging is switched on gradually by mixing the dynamics with the ``package-and-redistribute'' kernel $QU$:
+\[
+P_\lambda=(1-\lambda)P+\lambda\,QU,\qquad \lambda\in[0,1].
+\]
+We call $\lambda$ the \emph{closure strength}. At $\lambda=1$ the dynamics is $QU$ itself. Because $UQ=I$, this kernel is idempotent, $(QU)^2=QU$. (This algebraic fact is the one mechanized statement used here; see Section~\ref{sec:exact-results}.) To observe the system at timescale $\tau\in\{1,2\}$ we use the \emph{empirical endomap}
+\[
+E=P_\lambda^{\tau}\,Q\,U,
+\]
+which runs the dynamics for $\tau$ steps, coarse-grains, and re-lifts.
+
+\subsection{Three observable channels}
+
+\paragraph{Packaging: closure error and objecthood.} A fully packaged description reproduces itself, so $E$ should be close to idempotent. The \emph{closure error} measures the largest row-wise failure of idempotence in total variation,
+\[
+\mathrm{CE}=\max_i \tfrac12\bigl\|E_{i\cdot}-(E^2)_{i\cdot}\bigr\|_1 .
+\]
+The \emph{objecthood order parameter} measures how well macrostates retain themselves. Let $B=U P_\lambda^{\tau} Q$ be the induced $k\times k$ macro kernel. A macrostate $x$ is retained with probability $B_{xx}$, so $\operatorname{tr}B$ is a soft count of stable objects, and for $k\ge2$
+\[
+M_{\mathrm{obj}}=\operatorname{clip}\!\Bigl(\tfrac{\operatorname{tr}B-1}{k-1},\,0,\,1\Bigr).
+\]
+For the two-block lens this is $\operatorname{clip}(\operatorname{tr}B-1,0,1)$. The idea that objects are picked out by closure has precedents outside dynamics, for example in perception and contour grouping \cite{marino_scholl_2005,wang_wang_kubota_2004}.
+
+\paragraph{Drive: affinity.} Let $\pi$ be a stationary law of $P_\lambda^{\tau}$ and $J_{ij}=\pi_i(P_\lambda^{\tau})_{ij}$ the stationary flux. The \emph{affinity} is the stationary time-reversal divergence
+\[
+\mathrm{Aff}=D_{\mathrm{KL}}\bigl(J\,\|\,J^{\top}\bigr)=\sum_{i<j}\bigl(J_{ij}-J_{ji}\bigr)\log\frac{J_{ij}}{J_{ji}},
+\]
+that is, the entropy production per observed step \cite{seifert_2012,liang_pigolotti_2023}. It is zero exactly when the stationary process satisfies detailed balance, and it is $+\infty$ if some flux runs one way only. In this paper affinity is evaluated on the \emph{microstate} kernel at $\tau=1$. It is part of the declared measurement, not an arrow reconstructed from the macro description alone. The distinction is real: a biased four-cycle viewed through a parity lens has positive microscopic affinity but a reversible two-state macro kernel.
+
+\paragraph{Staging: timescale shift of the boundaries.} Staging is detected by asking whether the birth moves when the observation timescale changes from $\tau=1$ to $\tau=2$ \cite{landim_2019,defenu_2021}. This uses the structural boundaries defined next.
+
+\subsection{Boundaries}
+
+Each observable is sampled on a declared $\lambda$ grid. The \emph{closure boundary} $\lambda_{\mathrm{CE}}$ is the first $\lambda$ at which CE falls to $0.025$, and the \emph{objecthood boundary} $\lambda_{M_{\mathrm{obj}}}$ is the first $\lambda$ at which $M_{\mathrm{obj}}$ reaches $0.90$. Both are located by linear interpolation between the last sample that misses the threshold and the first that meets it. If the threshold is already met at the first grid point, the boundary is \emph{left-censored}: we only know that it lies at or below that point, and we mark it as such. Birth requires both conditions together, so the structural reference boundary is the more conservative of the two,
+\[
+\lambda_{\mathrm{struct,ref}}=\max\bigl(\lambda_{\mathrm{CE}},\,\lambda_{M_{\mathrm{obj}}}\bigr),
+\]
+and we check that both thresholds hold simultaneously there on the interpolated curves. The drive reading at birth, $\mathrm{Aff}_{\mathrm{ref}}$, is the affinity curve interpolated linearly to $\lambda_{\mathrm{struct,ref}}$.
+
+For staging we compute both boundaries at $\tau=1$ and at $\tau=2$ and record the shifts
+\[
+\Delta\lambda_{\mathrm{CE}}=\bigl|\lambda_{\mathrm{CE}}^{(\tau=2)}-\lambda_{\mathrm{CE}}^{(\tau=1)}\bigr|,\qquad
+\Delta\lambda_{M_{\mathrm{obj}}}=\bigl|\lambda_{M_{\mathrm{obj}}}^{(\tau=2)}-\lambda_{M_{\mathrm{obj}}}^{(\tau=1)}\bigr|,
+\]
+together with a \emph{presence change} flag, which is raised when a boundary exists at one timescale and not at the other. The single staging coordinate used on the observable map is
+\[
+P4_{\mathrm{dual}}=\min\bigl(\Delta\lambda_{\mathrm{CE}},\,\Delta\lambda_{M_{\mathrm{obj}}}\bigr).
+\]
+It is large only if \emph{both} boundaries move.
+
+\subsection{Decision rule}
+
+Table~\ref{tab:rubric} gives the rule. Each primitive is assigned one of three states: on, off, or \emph{unknown}. Unknown is assigned whenever the evidence is missing or falls between the on and off thresholds. A system receives a class label only if all three states are known and the resulting signature matches a row of Table~\ref{tab:canonical-layer-birth-classes}. Otherwise it is reported as \emph{unclassified}. Missing evidence is never counted as evidence of absence: for example, a missing affinity reading does not make a system drive-free.
+
+\begin{table}[tbp]
+\centering
+\small
+\caption{Decision rule for the three switches. Shifts and boundaries are as defined in the text.}
+\label{tab:rubric}
+\begin{tabularx}{\linewidth}{@{}l Y Y@{}}
+\toprule
+Switch & On & Off \\
+\midrule
+$P5$ packaging & both boundaries exist and both thresholds (CE${}\le 0.025$, $M_{\mathrm{obj}}\ge 0.90$) hold at $\lambda_{\mathrm{struct,ref}}$ & $\min\mathrm{CE}>0.05$ and $\max M_{\mathrm{obj}}<0.85$ on the grid \\
+$P6_{\mathrm{drive}}$ drive & $\mathrm{Aff}_{\mathrm{ref}}\ge 10^{-3}$ & $\mathrm{Aff}_{\mathrm{ref}}\le 10^{-6}$ \\
+$P4$ staging & a presence change, or $\Delta\lambda_{\mathrm{CE}}\ge 0.15$ \emph{and} $\Delta\lambda_{M_{\mathrm{obj}}}\ge 0.15$ & both shifts measured, no presence change, and not on \\
+\midrule
+$P4$-like signal (not a class label) & \multicolumn{2}{l}{a presence change, or $\max(\Delta\lambda_{\mathrm{CE}},\Delta\lambda_{M_{\mathrm{obj}}})\ge 0.05$} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Supporting quantities}
+
+Three further kinds of quantity appear in the paper but play no part in assigning a class:
+\begin{itemize}
+  \item \emph{No-fake-arrow controls} test the drive channel by checking that reversible constructions are not labelled as driven (Section~\ref{sec:class-i-ii}).
+  \item \emph{Shadow-ensemble susceptibility and Binder-type ratios} describe how $\Delta M_{\mathrm{obj}}$ fluctuates under small parameter perturbations that preserve the class (Section~\ref{sec:class-iii-iv}) \cite{fisher_barber_1972,binder_1981_prl}.
+  \item \emph{Capacity/depth proxies} describe what happens after birth (Section~\ref{sec:observable-map-support}).
+\end{itemize}
+
+\paragraph{Lenses.} The class claims for Class-III and Class-IV are made for the manual lens. We also report two automatic lenses, a spectral sign-pattern lens and a diffusion-quantile lens, as a robustness test. These lenses do not enter the definitions \cite{mardt_noe_2021,nitskansky_clein_raveh_2026,sixbirds_lay_stone}.

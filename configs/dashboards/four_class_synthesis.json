@@ -1,0 +1,19 @@
+{
+  "dashboard_id": "four_class_synthesis_dashboard",
+  "artifact_subdir": "four_class_synthesis",
+  "sources": {
+    "class_i_root": "results/campaigns/class_i_equilibrium",
+    "class_ii_root": "results/campaigns/class_ii_driven",
+    "class_i_ii_consolidation_root": "results/dashboards/class_i_class_ii_consolidation",
+    "class_iii_root": "results/campaigns/class_iii_full_campaign",
+    "class_iv_root": "results/campaigns/class_iv_full_campaign"
+  },
+  "conventions": {
+    "comparison_overlap_sizes": [16, 32, 64],
+    "representative_size": 32,
+    "tau_depth_spot_sizes": [32, 64],
+    "tau_depth_lambda_grid": [0.55, 0.65, 0.75, 0.85, 0.95, 1.0],
+    "control_application_name": "mix_with_packaging_projector"
+  },
+  "findings_note_path": "notes/findings/S2-08_four_class_synthesis_dashboard.md"
+}

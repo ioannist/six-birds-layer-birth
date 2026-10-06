@@ -1,0 +1,14 @@
+{
+  "run_id": "adaptive_demo",
+  "tau_protocol": {
+    "name": "adaptive",
+    "method": "spectral_gap_scaled",
+    "alpha": 1.0,
+    "gap_floor": 1e-8,
+    "tau_min": 1,
+    "tau_max": 32
+  },
+  "control": {
+    "closure_strength_lambda": 0.5
+  }
+}

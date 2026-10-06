@@ -1,0 +1,120 @@
+{
+  "title": "To Classify a Stone with Six Birds: Primitive Activation and Observable Separation of Layer-Birth Classes",
+  "description": "<p>A <em>layer birth</em> is the point at which a coarse-grained description of a stochastic system starts to behave like a theory in its own right, with stable macrostates that it reproduces under its own dynamics. This paper asks whether such births come in different kinds, and how one would tell them apart by measurement.</p>\n<p>Using the primitive vocabulary of the Six-Birds framework, we classify a birth by three switches: whether <em>packaging</em> (P5) produces stable objects, whether a genuinely <em>directed circulation</em> (P6<sub>drive</sub>) is present at birth, and whether <em>staging</em> structure (P4) moves the birth when the observation timescale changes. Requiring packaging leaves four classes: Class-I (packaging only), Class-II (with drive), Class-III (with staging), and Class-IV (with both).</p>\n<p>We define each switch through finite-state observables: closure error and objecthood for packaging, stationary time-reversal divergence (affinity) for drive, and the timescale shift of both structural boundaries for staging. We give one explicit kernel family for each class. All four representatives are classified correctly on their declared finite grids, and the classification is certified in exact rational arithmetic at ten (class, size) points, including Class-III and Class-IV at sizes 16 to 128. For the undriven Class-III family, a strong-lumpability argument shows that its operational signature is the same at every admissible size. On a common map at size 64, the four classes occupy distinct regions.</p>\n<p>The Class-I/Class-II contrast is the most robust result: it rests on an exactly zero versus a clearly positive affinity, and it is protected by no-fake-arrow controls. The staging classes are confirmed only for the manual coarse-graining lens and lose their staging label under the two automatic lenses we tried. Capacity/depth proxies and three kernels built from upstream compiled features add context but do not classify. The results are finite and operational: we make no universality-exponent claim, no claim of robustness to arbitrary lenses, and no claim that the upstream system realizes all four classes.</p>\n<p>Code, configurations, the exact rational audit, and figure scripts: <a href=\"https://github.com/ioannist/six-birds-layer-birth\">https://github.com/ioannist/six-birds-layer-birth</a>.</p>",
+  "publication_date": "2026-10-03",
+  "version": "v2.0",
+  "keywords": [
+    "layer birth",
+    "primitive activation",
+    "observable separation",
+    "emergence taxonomy",
+    "coarse-graining",
+    "Markov chains",
+    "entropy production",
+    "time-reversal asymmetry",
+    "strong lumpability",
+    "exact certificates",
+    "structural classes",
+    "emergence calculus",
+    "Six Birds Theory"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.48550/arXiv.2602.00134",
+      "relation": "cites",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.18838994",
+      "relation": "cites",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.18906902",
+      "relation": "cites",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.20944/preprints202602.1699.v1",
+      "relation": "cites",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1111/sjp.12279",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1103/PhysRevE.108.L062101",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1088/0034-4885/75/12/126001",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1214/18-PS310",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1073/pnas.2101785118",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1063/5.0064668",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1093/bioinformatics/btaf585",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1103/PhysRevLett.28.1516",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1103/PhysRevLett.47.693",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.3758/BF03193547",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1109/CVPR.2004.1315045",
+      "relation": "cites",
+      "resource_type": "publication-conferencepaper",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1016/j.shpsa.2023.05.010",
+      "relation": "cites",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    }
+  ],
+  "notes": "Version 2 (October 3, 2026) follows a full review of the mathematics and analysis code behind version 1. The four class claims are unchanged. Added: exact results (closed form for the packaging observables, exact affinity lower bound, ten rational certificates, and a lumping proof of Class-III size independence). Measurement repairs (one-way flux, verified stationary laws, affinity at the joint structural boundary, unknown-aware evidence, left-censored boundaries). Updated numbers (common-size N=64 observable map, N*Var susceptibility convention), sharper scope statements (capacity index, upstream feature kernels, protocol-trap control, Lean scope), a rewritten text, and new figures. A version-history appendix lists the changes."
+}

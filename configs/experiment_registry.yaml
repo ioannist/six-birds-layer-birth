@@ -1,0 +1,445 @@
+{
+  "registry_version": "1",
+  "experiments": {
+    "contract_smoke": {
+      "status": "active",
+      "description": "Dry-run bundle contract smoke check.",
+      "default_bundle_root": "artifacts/dryrun",
+      "default_notes_path": "notes/findings/contract_smoke.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/seeds/contract_smoke.json"
+      }
+    },
+    "upstream_smoke_baseline": {
+      "status": "active",
+      "description": "Smoke wrapper for vendored upstream baseline numeric path.",
+      "default_bundle_root": "results/upstream_smoke",
+      "default_notes_path": "notes/findings/LB-03_upstream_smoke.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "placeholder",
+        "seed_file": "configs/seeds/upstream_smoke_baseline.json"
+      }
+    },
+    "tiny_grid_sweep": {
+      "status": "active",
+      "description": "Deterministic LB-11 tiny-grid sweep runner baseline.",
+      "default_bundle_root": "results/sweeps/tiny_grid_v1",
+      "default_notes_path": "notes/findings/LB-11_sweep_runner.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "grid",
+        "seed_file": "configs/sweeps/tiny_grid.json"
+      }
+    },
+    "lb12_pilot_equilibrium_like": {
+      "status": "active",
+      "description": "LB-12 equilibrium-like pilot lambda scan.",
+      "default_bundle_root": "results/pilots/equilibrium_like",
+      "default_notes_path": "notes/findings/LB-12_pilot_equilibrium_like.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/pilots/equilibrium_like_lambda_scan.json"
+      }
+    },
+    "lb12_pilot_driven_family": {
+      "status": "active",
+      "description": "LB-12 driven-family pilot lambda scan.",
+      "default_bundle_root": "results/pilots/driven_family",
+      "default_notes_path": "notes/findings/LB-12_pilot_driven_family.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/pilots/driven_family_lambda_scan.json"
+      }
+    },
+    "lb12_pilot_null_family": {
+      "status": "active",
+      "description": "LB-12 null-family control scan.",
+      "default_bundle_root": "results/pilots/null_family",
+      "default_notes_path": "notes/findings/LB-12_pilot_null_family.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/pilots/null_family_control_scan.json"
+      }
+    },
+    "lb12_pilot_holonomy_control": {
+      "status": "active",
+      "description": "LB-12 holonomy-control lambda scan.",
+      "default_bundle_root": "results/pilots/holonomy_control",
+      "default_notes_path": "notes/findings/LB-12_pilot_holonomy_control.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/pilots/holonomy_control_lambda_scan.json"
+      }
+    },
+    "robustness_equilibrium_like": {
+      "status": "active",
+      "description": "LB-13 robustness scan for equilibrium-like family.",
+      "default_bundle_root": "results/robustness/equilibrium_like",
+      "default_notes_path": "notes/findings/LB-13_robustness_equilibrium_like.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/robustness/equilibrium_like_robustness.json"
+      }
+    },
+    "robustness_driven_low_bias": {
+      "status": "active",
+      "description": "LB-13 robustness scan for driven low-bias family.",
+      "default_bundle_root": "results/robustness/driven_low_bias",
+      "default_notes_path": "notes/findings/LB-13_robustness_driven_low_bias.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/robustness/driven_low_bias_robustness.json"
+      }
+    },
+    "scaling_mock_fss_smoke": {
+      "status": "active",
+      "description": "LB-14 mocked finite-size scaling smoke analysis.",
+      "default_bundle_root": "results/scaling_smoke/mock_fss",
+      "default_notes_path": "notes/findings/LB-14_scaling_analysis.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/scaling/mock_fss.json"
+      }
+    },
+    "class_i_equilibrium_scaling_campaign": {
+      "status": "active",
+      "description": "LB-15 full class-I equilibrium scaling campaign.",
+      "default_bundle_root": "results/campaigns/class_i_equilibrium",
+      "default_notes_path": "notes/findings/LB-15_class_i_scaling_campaign.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/class_i_equilibrium_scaling.json"
+      }
+    },
+    "class_ii_driven_scaling_campaign": {
+      "status": "active",
+      "description": "LB-16 full class-II driven scaling campaign.",
+      "default_bundle_root": "results/campaigns/class_ii_driven",
+      "default_notes_path": "notes/findings/LB-16_class_ii_scaling_campaign.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/class_ii_driven_scaling.json"
+      }
+    },
+    "holonomy_crossover_campaign": {
+      "status": "active",
+      "description": "LB-17 holonomy crossover campaign for routed-vs-direct control.",
+      "default_bundle_root": "results/campaigns/holonomy_crossover",
+      "default_notes_path": "notes/findings/LB-17_holonomy_crossover_campaign.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/holonomy_crossover.json"
+      }
+    },
+    "holonomy_crossover_campaign_v2": {
+      "status": "active",
+      "description": "LB-17 holonomy crossover campaign iteration 2 with interface-skew reversible base.",
+      "default_bundle_root": "results/campaigns/holonomy_crossover_v2",
+      "default_notes_path": "notes/findings/LB-17_holonomy_crossover_campaign_v2.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/holonomy_crossover_v2.json"
+      }
+    },
+    "crossover_decision_affinity_boundary": {
+      "status": "active",
+      "description": "LB-17 decision gate and affinity-boundary reconnaissance.",
+      "default_bundle_root": "results/campaigns/crossover_decision_affinity_boundary",
+      "default_notes_path": "notes/findings/LB-17_crossover_decision_affinity_boundary.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/crossover_decision_affinity_boundary.json"
+      }
+    },
+    "affinity_visibility_audit": {
+      "status": "active",
+      "description": "LB-17 affinity visibility and degeneracy audit.",
+      "default_bundle_root": "results/campaigns/affinity_visibility_audit",
+      "default_notes_path": "notes/findings/LB-17_affinity_visibility_audit.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/affinity_visibility_audit.json"
+      }
+    },
+    "class_ii_identifiability_audit": {
+      "status": "active",
+      "description": "LB-17 class-II identifiability and observable audit.",
+      "default_bundle_root": "results/campaigns/class_ii_identifiability_audit",
+      "default_notes_path": "notes/findings/LB-17_class_ii_identifiability_audit.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/class_ii_identifiability_audit.json"
+      }
+    },
+    "fss_stability_size_extension": {
+      "status": "active",
+      "description": "LB-17 FSS stability and size-extension audit.",
+      "default_bundle_root": "results/campaigns/fss_stability_size_extension",
+      "default_notes_path": "notes/findings/LB-17_fss_stability_size_extension.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/fss_stability_size_extension.json"
+      }
+    },
+    "structural_affinity_alignment": {
+      "status": "active",
+      "description": "LB-17 structural-boundary vs affinity-onset alignment campaign.",
+      "default_bundle_root": "results/campaigns/structural_affinity_alignment",
+      "default_notes_path": "notes/findings/LB-17_structural_affinity_alignment.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/structural_affinity_alignment.json"
+      }
+    },
+    "canonical_class_rubric": {
+      "status": "active",
+      "description": "S2-01 canonical class rubric and machine-readable taxonomy.",
+      "default_bundle_root": "results/taxonomy/canonical_class_rubric",
+      "default_notes_path": "notes/findings/S2-01_canonical_class_rubric.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/taxonomy/canonical_class_rubric.json"
+      }
+    },
+    "class_i_class_ii_consolidation_dashboard": {
+      "status": "active",
+      "description": "S2-02 Class-I / Class-II consolidation dashboard.",
+      "default_bundle_root": "results/dashboards/class_i_class_ii_consolidation",
+      "default_notes_path": "notes/findings/S2-02_class_i_class_ii_consolidation.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/dashboards/class_i_class_ii_consolidation.json"
+      }
+    },
+    "p4_anomaly_metric_layer": {
+      "status": "active",
+      "description": "S2-03 P4-anomaly metric layer and taxonomy integration.",
+      "default_bundle_root": "results/metrics/p4_anomaly_metric_layer",
+      "default_notes_path": "notes/findings/S2-03_p4_anomaly_metric_layer.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/metrics/p4_anomaly_metric_layer.json"
+      }
+    },
+    "class_iii_candidate_pilots": {
+      "status": "active",
+      "description": "S2-04 Class-III substrate design and pilot suite.",
+      "default_bundle_root": "results/pilots/class_iii_candidates",
+      "default_notes_path": "notes/findings/S2-04_class_iii_candidate_pilots.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/pilots/class_iii_candidates.json"
+      }
+    },
+    "class_iii_escalation": {
+      "status": "active",
+      "description": "S2-04 Class-III candidate escalation and sensor-asymmetry probe.",
+      "default_bundle_root": "results/pilots/class_iii_escalation",
+      "default_notes_path": "notes/findings/S2-04_class_iii_escalation.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/pilots/class_iii_escalation.json"
+      }
+    },
+    "class_iii_bulk_persistence": {
+      "status": "active",
+      "description": "S2-04 Class-III bulk redesign and low-lambda persistence audit.",
+      "default_bundle_root": "results/pilots/class_iii_bulk_persistence",
+      "default_notes_path": "notes/findings/S2-04_class_iii_bulk_persistence.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/pilots/class_iii_bulk_persistence.json"
+      }
+    },
+    "class_iii_refinement_and_p4_audit": {
+      "status": "completed",
+      "description": "S2-04 replicated-portal refinement and P4 criterion audit.",
+      "default_bundle_root": "results/pilots/class_iii_refinement_and_p4_audit",
+      "default_notes_path": "notes/findings/S2-04_class_iii_refinement_and_p4_audit.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/pilots/class_iii_refinement_and_p4_audit.json"
+      }
+    },
+    "class_iii_strict_confirmation": {
+      "status": "superseded",
+      "description": "Provisional strict Class-III confirmation precursor (exploratory sprint); superseded by class_iii_strict_confirmation_v2.",
+      "default_bundle_root": "results/pilots/class_iii_strict_confirmation",
+      "default_notes_path": "notes/findings/S2-05_class_iii_strict_confirmation.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/pilots/class_iii_strict_confirmation.json"
+      }
+    },
+    "class_iii_strict_confirmation_v2": {
+      "status": "completed",
+      "description": "S2-04 corrective confirmation of strict Class-III. Size panel [16,32,64,128] for sp2/sp3/sp4 variants. Yields persistence and scale-invariance verdicts.",
+      "default_bundle_root": "results/pilots/class_iii_strict_confirmation_v2",
+      "default_notes_path": "notes/findings/S2-04_class_iii_strict_confirmation_v2.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/pilots/class_iii_strict_confirmation_v2.json"
+      }
+    },
+    "class_iii_full_campaign": {
+      "status": "completed",
+      "description": "S2-05 canonical full Class-III campaign bundle using v2-confirmed replicated_portal_sp4.",
+      "default_bundle_root": "results/campaigns/class_iii_full_campaign",
+      "default_notes_path": "notes/findings/S2-05_class_iii_full_campaign.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/class_iii_full_campaign.json"
+      }
+    },
+    "class_iv_candidates": {
+      "status": "completed",
+      "description": "S2-06 Class-IV substrate design and pilot suite built on canonical Class-III replicated_portal_sp4.",
+      "default_bundle_root": "results/pilots/class_iv_candidates",
+      "default_notes_path": "notes/findings/S2-06_class_iv_candidates.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/pilots/class_iv_candidates.json"
+      }
+    },
+    "class_iv_full_campaign": {
+      "status": "completed",
+      "description": "S2-07 canonical full campaign for Class-IV using selected S2-06 best family replicated_portal_sp4_drive_f.",
+      "default_bundle_root": "results/campaigns/class_iv_full_campaign",
+      "default_notes_path": "notes/findings/S2-07_class_iv_full_campaign.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/class_iv_full_campaign.json"
+      }
+    },
+    "four_class_synthesis_dashboard": {
+      "status": "completed",
+      "description": "S2-08 unified synthesis dashboard for canonical Class-I/II/III/IV references.",
+      "default_bundle_root": "results/dashboards/four_class_synthesis",
+      "default_notes_path": "notes/findings/S2-08_four_class_synthesis_dashboard.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/dashboards/four_class_synthesis.json"
+      }
+    },
+    "affinity_result_consolidation": {
+      "status": "completed",
+      "description": "S2-09 standalone consolidation of affinity as secondary channel across settled class references.",
+      "default_bundle_root": "results/dashboards/affinity_result_consolidation",
+      "default_notes_path": "notes/findings/S2-09_affinity_result_consolidation.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/dashboards/affinity_result_consolidation.json"
+      }
+    },
+    "capacity_depth_extension": {
+      "status": "completed",
+      "description": "LB-19 adapted capacity/depth-growth post-birth extension across canonical Class-I/II/III/IV representatives.",
+      "default_bundle_root": "results/campaigns/capacity_depth_extension",
+      "default_notes_path": "notes/findings/LB-19_capacity_depth_extension.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/campaigns/capacity_depth_extension.json"
+      }
+    },
+    "class_iii_class_iv_lens_suite": {
+      "status": "completed",
+      "description": "F-01 lens robustness suite for canonical Class-III and Class-IV representatives under manual/spectral/diffusion lenses.",
+      "default_bundle_root": "results/robustness/class_iii_class_iv_lens_suite",
+      "default_notes_path": "notes/findings/F-01_class_iii_class_iv_lens_suite.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/robustness/class_iii_class_iv_lens_suite.json"
+      }
+    },
+    "class_iii_class_iv_shadow_panel": {
+      "status": "completed",
+      "description": "F-02 susceptibility/Binder shadow-ensemble phenomenology panel for canonical Class-III and Class-IV manual-lens channels.",
+      "default_bundle_root": "results/phenomenology/class_iii_shadow_panel;results/phenomenology/class_iv_shadow_panel",
+      "default_notes_path": "notes/findings/F-02_class_iii_class_iv_shadow_panel.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/phenomenology/class_iii_class_iv_shadow_panel.json"
+      }
+    },
+    "four_class_observable_map": {
+      "status": "completed",
+      "description": "F-03 measured observable-space map for canonical Class-I/II/III/IV on manual-lens channel.",
+      "default_bundle_root": "results/dashboards/four_class_observable_map",
+      "default_notes_path": "notes/findings/F-03_four_class_observable_map.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/dashboards/four_class_observable_map.json"
+      }
+    },
+    "capacity_postcritical_dashboard": {
+      "status": "completed",
+      "description": "F-04 packaging dashboard for capacity/depth as post-birth field from capacity_depth_extension bundle.",
+      "default_bundle_root": "results/dashboards/capacity_postcritical_dashboard",
+      "default_notes_path": "notes/findings/F-04_capacity_postcritical_dashboard.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/dashboards/capacity_postcritical_dashboard.json"
+      }
+    },
+    "upstream_pica_bridge": {
+      "status": "completed",
+      "description": "F-05 upstream/PICA external-validity bridge overlaying real vendored systems on four-class observables.",
+      "default_bundle_root": "results/bridges/upstream_pica_bridge",
+      "default_notes_path": "notes/findings/F-05_upstream_pica_bridge.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/bridges/upstream_pica_bridge.json"
+      }
+    },
+    "reproducibility_freeze": {
+      "status": "completed",
+      "description": "F-06 publication freeze: verifies presence, rerun stability, claim coverage, and ready-for-writing status across critical/supporting assets.",
+      "default_bundle_root": "results/freeze/reproducibility_freeze",
+      "default_notes_path": "notes/findings/F-06_reproducibility_freeze.md",
+      "default_metric_schema": "configs/result_bundle.schema.json",
+      "seed_policy": {
+        "mode": "fixed",
+        "seed_file": "configs/freeze/reproducibility_freeze.json"
+      }
+    }
+  }
+}

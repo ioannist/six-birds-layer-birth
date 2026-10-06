@@ -1,0 +1,77 @@
+\section{Exact results}
+\label{sec:exact-results}
+
+Most of the evidence in this paper is computational. This section collects the parts that can be stated and checked exactly. They make it possible to verify the class labels of the four representatives without relying on floating-point thresholds. Proofs are in Appendix~\ref{app:proofs}.
+
+\subsection{A closed form for the packaging observables}
+
+Write $A=P_\lambda^{\tau}Q$ (an $n\times k$ stochastic matrix) and $B=UA$ (the $k\times k$ macro kernel). Then $E=AU$ and $E^2=ABU$.
+
+\begin{proposition}[Packaging reduction]
+\label{prop:packaging}
+Because the rows of $U$ have disjoint supports and unit mass, $\|vU\|_1=\|v\|_1$ for every row vector $v\in\mathbb{R}^k$. Consequently
+\[
+\mathrm{CE}=\tfrac12\max_i\bigl\|A_{i\cdot}-(AB)_{i\cdot}\bigr\|_1 .
+\]
+For the two-block lens with uniform lift, let $a_i=A_{i0}$ and let $b_0$ and $b_1$ be the averages of $a_i$ over blocks $0$ and $1$. Then
+\[
+\mathrm{CE}=\max_i\bigl|a_i-a_ib_0-(1-a_i)b_1\bigr|,\qquad M_{\mathrm{obj}}=\operatorname{clip}(b_0-b_1,\,0,\,1).
+\]
+\end{proposition}
+
+So both packaging observables are determined by one column of $A$. This is what allows them to be computed in exact rational arithmetic for kernels with rational entries.
+
+\subsection{An exact lower bound on affinity}
+
+\begin{proposition}[Reversal lower bound]
+\label{prop:reversal}
+For $a,b>0$, $(a-b)\log(a/b)\ge 2(a-b)^2/(a+b)$. Hence, if $P_\lambda$ is doubly stochastic and the affinity is evaluated with the uniform stationary law $\pi_i=1/n$, then
+\[
+\mathrm{Aff}\;\ge\;\frac{2}{n}\sum_{i<j}\frac{\bigl(p_{ij}-p_{ji}\bigr)^2}{p_{ij}+p_{ji}},
+\]
+where the sum runs over pairs with $p_{ij}+p_{ji}>0$, and $\mathrm{Aff}=+\infty$ if some pair has $p_{ij}>0=p_{ji}$. In particular a symmetric kernel has $\mathrm{Aff}=0$ exactly.
+\end{proposition}
+
+All four representative kernels, and their mixtures with the uniform two-block $QU$, are doubly stochastic (checked exactly), and their affinity is evaluated with the uniform law, so the bound applies at every grid point. (For a reducible chain other stationary laws exist, and the bound need not hold for them. The uniform law is the one used here.) The bound uses no logarithms and is therefore exact in rational arithmetic. Since $\mathrm{Aff}_{\mathrm{ref}}$ is a linear interpolation of sampled values, the same interpolation of the sampled lower bounds is a lower bound for $\mathrm{Aff}_{\mathrm{ref}}$.
+
+\subsection{Exact certificates for the four representatives}
+
+Using Propositions~\ref{prop:packaging} and~\ref{prop:reversal}, an independent rational implementation rebuilds each representative kernel from its declared decimal parameters, read as exact fractions. It then evaluates CE and $M_{\mathrm{obj}}$ at every grid point for $\tau=1,2$, locates the boundaries, checks the joint birth condition, bounds the affinity, and applies the decision rule of Table~\ref{tab:rubric}. The results are in Table~\ref{tab:certificates}. All ten (class, size) points receive their intended label. The floating-point production code agrees with the exact grid values to within $3\times10^{-15}$.
+
+\begin{table}[tbp]
+\centering
+\small
+\caption{Exact certificates. Boundaries are at $\tau=1$; the lower bound is on $\mathrm{Aff}_{\mathrm{ref}}$ (``$0$'' means the kernel is symmetric and the affinity is exactly zero). An asterisk marks a left-censored boundary (threshold already met at the first grid point). Every row receives its intended class label.}
+\label{tab:certificates}
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{@{}llrcccccc@{}}
+\toprule
+Class & Representative & $N$ & $\lambda_{\mathrm{CE}}$ & $\lambda_{M_{\mathrm{obj}}}$ & $\mathrm{Aff}_{\mathrm{ref}}\ge$ & $\Delta\lambda_{\mathrm{CE}}$ & $\Delta\lambda_{M_{\mathrm{obj}}}$ & $P4$ \\
+\midrule
+I   & \texttt{class\_i\_reference}  & 32  & 0.8743 & 0.7625 & $0$ & 0.0616 & 0.1155 & off \\
+II  & \texttt{class\_ii\_reference} & 32  & 0.5556 & 0.5000$^{*}$ & 0.0340 & 0.1895 & 0.0000 & off \\
+III & \texttt{replicated\_portal\_sp4} & 16, 32, 64, 128 & 0.5617 & 0.1233 & $0$ & 0.2016 & 0.3826 & on \\
+IV  & \texttt{\ldots\_sp4\_drive\_f} & 16  & 0.6075 & 0.2149 & 0.00164 & 0.1826 & 0.3529 & on \\
+IV  & & 32  & 0.5609 & 0.1219 & 0.00220 & 0.2033 & 0.3896 & on \\
+IV  & & 64  & 0.5333 & 0.0666 & 0.00296 & 0.2157 & 0.4106 & on \\
+IV  & & 128 & 0.5181 & 0.0500$^{*}$ & 0.00363 & 0.2223 & 0.4082 & on \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The certificates cover the declared finite grids and sizes, the manual two-block lens, and the uniform lift. The boundaries are interpolated proxies on those grids, not continuum transition points. For Class-IV the certificate holds at the four sizes listed and says nothing about larger sizes. For Class-III we can say more.
+
+\subsection{Class-III is the same at every size}
+
+The Class-III representative belongs to a \emph{replicated-portal} family. The $n=8m$ states ($m\ge 2$) form two blocks of $m$ modules each. Every module has three mutually connected ``fast'' states and one ``portal'' state, and each portal is linked to one partner portal in the other block. The kernel is the symmetric weight matrix, completed on the diagonal to constant row sums and normalized.
+
+\begin{proposition}[Size independence of the undriven family]
+\label{prop:lumpability}
+Group the microstates into four types: fast or portal, in block 0 or block 1. Then $P_\lambda$ is strongly lumpable to these types, with a $4\times4$ type kernel $R_\lambda$ that does not depend on $m$. Moreover $P_\lambda^{\tau}Q=H\,R_\lambda^{\tau}L$ for every $\tau\ge0$, where $H$ maps states to types and $L$ maps types to blocks. Consequently CE and $M_{\mathrm{obj}}$ are independent of $m$ for every $\lambda\in[0,1]$ and every $\tau$, and $\mathrm{Aff}=0$ exactly because $P_\lambda$ is symmetric.
+\end{proposition}
+
+The proposition turns the size-16 certificate into a statement about every admissible size $n=8m\ge16$. The Class-III representative has exactly the same boundaries, shifts, and label at every size, which is why the Class-III row of Table~\ref{tab:certificates} is identical across $N$. The argument does not carry over to Class-IV. There the added global directed cycle crosses module and block boundaries, so the four-type lumping fails, and indeed the Class-IV values in Table~\ref{tab:certificates} change with $N$.
+
+\subsection{What is and is not mechanized}
+
+The one statement proved in a proof assistant is the idempotence used above: if $UQ=1$ then $(QU)(QU)=QU$. It is proved in Lean~4 for an abstract monoid and for morphisms in a small category, and the proofs depend on no axioms. It explains why $\mathrm{CE}=0$ and $M_{\mathrm{obj}}=1$ at $\lambda=1$. It does \emph{not} formalize the taxonomy, the decision rule, or the rational certificates. Those are exact computations in Python, checked independently against the production code, and not machine-checked proofs.

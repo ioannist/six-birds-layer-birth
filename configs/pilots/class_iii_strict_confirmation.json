@@ -1,0 +1,56 @@
+{
+  "pilot_id": "class_iii_strict_confirmation_v1",
+  "artifact_subdir": "class_iii_strict_confirmation",
+  "shared": {
+    "sizes": [16],
+    "lambda_grid": [
+      0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50,
+      0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.0
+    ],
+    "analysis_lens": "manual_family_coarse_lens",
+    "lift_name": "uniform_lift_family",
+    "tau_values": [1, 2],
+    "control_application_name": "mix_with_packaging_projector"
+  },
+  "classification_conventions": {
+    "candidate_p5_state_rule": "active_if_either_tau_active",
+    "candidate_p6_source": "max_affinity_ref_across_tau",
+    "candidate_p4_state_rule": "active_iff_p4_class_active"
+  },
+  "candidates": [
+    {
+      "candidate_name": "replicated_portal_sp3",
+      "family_name": "replicated_portal_reversible_family",
+      "family_kwargs": {
+        "n": 16,
+        "fast_weight": 1.0,
+        "fast_portal_weight": 0.02,
+        "portal_cross_weight": 1.2,
+        "portal_self_weight": 3.0
+      }
+    },
+    {
+      "candidate_name": "replicated_portal_sp4",
+      "family_name": "replicated_portal_reversible_family",
+      "family_kwargs": {
+        "n": 16,
+        "fast_weight": 1.0,
+        "fast_portal_weight": 0.02,
+        "portal_cross_weight": 1.2,
+        "portal_self_weight": 4.0
+      }
+    },
+    {
+      "candidate_name": "replicated_portal_sp2",
+      "family_name": "replicated_portal_reversible_family",
+      "family_kwargs": {
+        "n": 16,
+        "fast_weight": 1.0,
+        "fast_portal_weight": 0.02,
+        "portal_cross_weight": 1.2,
+        "portal_self_weight": 2.0
+      }
+    }
+  ],
+  "findings_note_path": "notes/findings/S2-05_class_iii_strict_confirmation.md"
+}

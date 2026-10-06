@@ -1,0 +1,10 @@
+{
+  "run_id": "fixed_demo",
+  "tau_protocol": {
+    "name": "fixed",
+    "tau": 3
+  },
+  "control": {
+    "closure_strength_lambda": 0.35
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "control_name": "no_fake_arrow_controls",
+  "cases": [
+    {
+      "case_name": "reversible_block_manual",
+      "family": "reversible_block_family",
+      "family_params": {
+        "n_blocks": 2,
+        "block_size": 4,
+        "intra_block_weight": 1.0,
+        "inter_block_weight": 0.05,
+        "self_weight": 0.0
+      },
+      "lens_mode": "manual",
+      "manual_lens": [0, 0, 0, 0, 1, 1, 1, 1]
+    },
+    {
+      "case_name": "reversible_block_spectral",
+      "family": "reversible_block_family",
+      "family_params": {
+        "n_blocks": 2,
+        "block_size": 4,
+        "intra_block_weight": 1.0,
+        "inter_block_weight": 0.05,
+        "self_weight": 0.0
+      },
+      "lens_mode": "spectral_sign_pattern",
+      "target_k": 2,
+      "tau": 1
+    },
+    {
+      "case_name": "null_flat_mixing_manual",
+      "family": "null_flat_mixing_family",
+      "family_params": {
+        "n": 8
+      },
+      "lens_mode": "manual",
+      "manual_lens": [0, 0, 0, 0, 1, 1, 1, 1]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+
+% ------------------------------------------------------------------
+% Encoding, fonts, language
+% ------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ------------------------------------------------------------------
+% Page geometry
+% ------------------------------------------------------------------
+\usepackage[margin=1in]{geometry}
+\raggedbottom
+
+% ------------------------------------------------------------------
+% Math
+% ------------------------------------------------------------------
+\usepackage{mathtools}          % superset of amsmath
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+% ------------------------------------------------------------------
+% Tables and figures
+% ------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{ragged2e}
+\usepackage[font=small,labelfont=bf,labelsep=period]{caption}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit}
+
+% ------------------------------------------------------------------
+% Lists
+% ------------------------------------------------------------------
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+
+% ------------------------------------------------------------------
+% Cross-references and URLs
+% ------------------------------------------------------------------
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{fancyhdr}
+
+\hypersetup{
+  colorlinks  = true,
+  linkcolor   = black,
+  citecolor   = black,
+  urlcolor    = {blue!70!black}
+}
+
+% ------------------------------------------------------------------
+% Custom column types
+% ------------------------------------------------------------------
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+
+% ------------------------------------------------------------------
+% Float placement tuning
+% ------------------------------------------------------------------
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.12}
+\renewcommand{\floatpagefraction}{0.75}
+
+% ------------------------------------------------------------------
+% Paragraph and line-breaking
+% ------------------------------------------------------------------
+\setlength{\emergencystretch}{2em}
+\widowpenalty=10000
+\clubpenalty=10000
+
+\newcommand{\orcidauthorA}{0009-0009-7659-5964}
+\newcommand{\orcidicon}{\includegraphics[width=0.32cm]{../../sixbirds-mathematics/tex/math_instantiation/Definitions/logo-orcid.pdf}}
+\newcommand{\orcidA}{\href{https://orcid.org/\orcidauthorA}{\orcidicon}}
+
+\fancypagestyle{firstpage}{%
+  \fancyhf{}
+  \fancyfoot[C]{\scriptsize Automorph Inc., Wilmington, DE, USA ioannis@automorph.io Zenodo DOI: \href{https://doi.org/10.5281/zenodo.23118249}{10.5281/zenodo.23118249} \textcopyright\ 2026 CC-BY 4.0}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% ==================================================================
+\begin{document}
+
+\input{frontmatter}
+
+\input{sections/01_introduction}
+\input{sections/02_primitives_and_rubric}
+\input{sections/03_observables_and_evidence}
+\input{sections/04_exact_results}
+\input{sections/05_class_i_ii}
+\input{sections/06_class_iii_iv}
+\input{sections/07_observable_map_and_supporting_assets}
+\input{sections/08_discussion}
+\input{sections/09_conclusion}
+
+\appendix
+\input{appendices/A_proofs}
+\input{appendices/B_metrics_and_rubric}
+\input{appendices/C_negative_results_and_constraints}
+\input{appendices/D_reproducibility_and_evidence_ledger}
+\input{appendices/E_version_history}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

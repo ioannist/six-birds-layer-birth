@@ -1,0 +1,65 @@
+{
+  "metric_layer_id": "p4_anomaly_metric_layer_v1",
+  "artifact_subdir": "p4_anomaly_metric_layer",
+  "boundary_targets": {
+    "ce_target": 0.025,
+    "mobj_target": 0.9
+  },
+  "thresholds": {
+    "p4_like_shift_min": 0.05,
+    "p4_class_dual_shift_min": 0.15
+  },
+  "reference_profiles": [
+    {
+      "profile_name": "class_i_reference",
+      "family_name": "reversible_block_family",
+      "size": 32,
+      "n_blocks": 2,
+      "block_size": 16,
+      "intra_block_weight": 1.0,
+      "inter_block_weight": 0.25,
+      "self_weight": 0.0,
+      "control_application_name": "mix_with_packaging_projector",
+      "lambda_grid": [0.55, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0],
+      "taxonomy_profile_name": "class_i_reference"
+    },
+    {
+      "profile_name": "class_ii_reference",
+      "family_name": "driven_cycle_family",
+      "size": 32,
+      "self_weight": 0.1,
+      "forward_weight": 0.55,
+      "backward_weight": 0.35,
+      "control_application_name": "mix_with_packaging_projector",
+      "lambda_grid": [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.9, 1.0],
+      "taxonomy_profile_name": "class_ii_reference"
+    }
+  ],
+  "synthetic_cases": [
+    {
+      "name": "no_shift",
+      "tau1": {"ce_boundary_lambda": 0.8, "mobj_boundary_lambda": 0.8},
+      "tau2": {"ce_boundary_lambda": 0.8, "mobj_boundary_lambda": 0.8},
+      "expected": {"p4_like_signal": false, "p4_class_active": false}
+    },
+    {
+      "name": "single_proxy_mild_shift",
+      "tau1": {"ce_boundary_lambda": 0.8, "mobj_boundary_lambda": 0.8},
+      "tau2": {"ce_boundary_lambda": 0.86, "mobj_boundary_lambda": 0.8},
+      "expected": {"p4_like_signal": true, "p4_class_active": false}
+    },
+    {
+      "name": "dual_proxy_large_shift",
+      "tau1": {"ce_boundary_lambda": 0.6, "mobj_boundary_lambda": 0.6},
+      "tau2": {"ce_boundary_lambda": 0.76, "mobj_boundary_lambda": 0.76},
+      "expected": {"p4_like_signal": true, "p4_class_active": true}
+    },
+    {
+      "name": "presence_shift",
+      "tau1": {"ce_boundary_lambda": 0.7, "mobj_boundary_lambda": null},
+      "tau2": {"ce_boundary_lambda": null, "mobj_boundary_lambda": 0.7},
+      "expected": {"p4_like_signal": true, "p4_class_active": true}
+    }
+  ],
+  "findings_note_path": "notes/findings/S2-03_p4_anomaly_metric_layer.md"
+}

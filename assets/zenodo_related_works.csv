@@ -1,0 +1,17 @@
+relation,identifier,scheme,resource_type,bibkey,title
+Cites,10.48550/arXiv.2602.00134,DOI,other,sixbirds_foundations,Six Birds: Foundations of Emergence Calculus
+Cites,10.5281/zenodo.18838994,DOI,other,sixbirds_create_stone,To Create a Stone with Six Birds: Emergent Geometric and Thermodynamic Regimes from a Minimal Stochastic Substrate
+Cites,10.5281/zenodo.18906902,DOI,other,sixbirds_protocol_trap,Six Birds Protocol Trap: Holonomy Without Entropy Production
+Cites,10.20944/preprints202602.1699.v1,DOI,other,sixbirds_lay_stone,To Lay a Stone with Six Birds
+Cites,10.1111/sjp.12279,DOI,publication-article,miller_primitives_2018,Are All Primitives Created Equal?
+Cites,10.1103/PhysRevE.108.L062101,DOI,publication-article,liang_pigolotti_2023,Thermodynamic bounds on time-reversal asymmetry
+Cites,10.1088/0034-4885/75/12/126001,DOI,publication-article,seifert_2012,"Stochastic thermodynamics, fluctuation theorems and molecular machines"
+Cites,10.1214/18-PS310,DOI,publication-article,landim_2019,Metastable Markov chains
+Cites,10.1073/pnas.2101785118,DOI,publication-article,defenu_2021,Metastability and discrete spectrum of long-range systems
+Cites,10.1063/5.0064668,DOI,publication-article,mardt_noe_2021,Progress in deep Markov state modeling: Coarse graining and experimental data restraints
+Cites,10.1093/bioinformatics/btaf585,DOI,publication-article,nitskansky_clein_raveh_2026,Building multiscale Markov state models by systematic mapping of temporal communities
+Cites,10.1103/PhysRevLett.28.1516,DOI,publication-article,fisher_barber_1972,Scaling Theory for Finite-Size Effects in the Critical Region
+Cites,10.1103/PhysRevLett.47.693,DOI,publication-article,binder_1981_prl,Critical Properties from Monte Carlo Coarse Graining and Renormalization
+Cites,10.3758/BF03193547,DOI,publication-article,marino_scholl_2005,"The role of closure in defining the ""objects"" of object-based attention"
+Cites,10.1109/CVPR.2004.1315045,DOI,publication-conferencepaper,wang_wang_kubota_2004,From Fragments to Salient Closed Boundaries: An In-Depth Study
+Cites,10.1016/j.shpsa.2023.05.010,DOI,publication-article,ardourel_bangu_2023,Finite-size scaling theory: Quantitative and qualitative approaches to critical phenomena

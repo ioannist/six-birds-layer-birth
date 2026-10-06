@@ -1,0 +1,40 @@
+{
+  "bridge_id": "upstream_pica_bridge",
+  "artifact_subdir": "upstream_pica_bridge",
+  "upstream_source_root": "vendor/six-birds-pica-ma_snapshot_v71",
+  "max_candidates": 3,
+  "candidates": [
+    {
+      "name": "upstream_tau_conflict_frag4_protocol",
+      "entrypoint": "closurelab.matrix_compile.compile_symbolic_instance_to_substrate",
+      "diagram_path": "examples/diagrams/tau_conflict.yaml",
+      "config": "frag4_protocol",
+      "rule_profile": "full",
+      "max_steps": 4,
+      "drive_mix": 0.03
+    },
+    {
+      "name": "upstream_audit_sector_frag4_protocol",
+      "entrypoint": "closurelab.matrix_compile.compile_symbolic_instance_to_substrate",
+      "diagram_path": "examples/diagrams/audit_sector.yaml",
+      "config": "frag4_protocol",
+      "rule_profile": "full",
+      "max_steps": 4,
+      "drive_mix": 0.06
+    },
+    {
+      "name": "upstream_audit_partition_loop_frag4_protocol",
+      "entrypoint": "closurelab.matrix_compile.compile_symbolic_instance_to_substrate",
+      "diagram_path": "examples/diagrams/audit_partition_loop.yaml",
+      "config": "frag4_protocol",
+      "rule_profile": "full",
+      "max_steps": 4,
+      "drive_mix": 0.10
+    }
+  ],
+  "control_application_name": "mix_with_packaging_projector",
+  "lambda_grid": [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00],
+  "tau_values": [1, 2],
+  "affinity_onset_thresholds": [0.001, 0.01, 0.05],
+  "findings_note_path": "notes/findings/F-05_upstream_pica_bridge.md"
+}

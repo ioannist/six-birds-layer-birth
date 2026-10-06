@@ -1,0 +1,59 @@
+{
+  "implementation_sha256": "66f6d724a57a4aa0c8632a5040d8bffdd29171da63cd0fe972af2be9109da569",
+  "observable_map": {
+    "artifact_root": "/tmp/layerbirth-math-review-support/four_class_observable_map",
+    "p6_axis_clean": true,
+    "p4_axis_clean": true,
+    "observable_map_separable": true,
+    "phase_map_figure_publishable": true
+  },
+  "capacity": {
+    "capacity_tracks_p4_axis": false,
+    "capacity_tracks_p6_axis": false,
+    "capacity_orthogonal_or_mixed": true,
+    "capacity_primary_classifier": false,
+    "final_verdict": "capacity_orthogonal_or_mixed",
+    "artifact_root": "/tmp/layerbirth-math-review-support/capacity_depth_extension"
+  },
+  "upstream_bridge": {
+    "artifact_root": "/tmp/layerbirth-math-review-support/upstream_pica_bridge",
+    "upstream_bridge_success": true,
+    "best_bridge_candidate_name": "upstream_audit_partition_loop_frag4_protocol",
+    "best_bridge_candidate_label": "Class-I",
+    "best_bridge_candidate_confidence": "high",
+    "diagnosis": "at least one upstream-feature-derived kernel executed and finite overlay coordinates extracted",
+    "evaluated_candidates": 3,
+    "candidate_execution_summary": [
+      {
+        "upstream_candidate_name": "upstream_tau_conflict_frag4_protocol",
+        "n": 22,
+        "kernel_origin": "constructed_from_compiled_upstream_features",
+        "canonical_class_label": "Class-I",
+        "affinity_ref": 1.7533784885673324e-23,
+        "bridge_candidate_usable": true,
+        "bridge_candidate_overlay_ready": true,
+        "reason": null
+      },
+      {
+        "upstream_candidate_name": "upstream_audit_sector_frag4_protocol",
+        "n": 50,
+        "kernel_origin": "constructed_from_compiled_upstream_features",
+        "canonical_class_label": "Class-I",
+        "affinity_ref": 2.0274431395542378e-23,
+        "bridge_candidate_usable": true,
+        "bridge_candidate_overlay_ready": true,
+        "reason": null
+      },
+      {
+        "upstream_candidate_name": "upstream_audit_partition_loop_frag4_protocol",
+        "n": 54,
+        "kernel_origin": "constructed_from_compiled_upstream_features",
+        "canonical_class_label": "Class-I",
+        "affinity_ref": 2.0066439463128363e-23,
+        "bridge_candidate_usable": true,
+        "bridge_candidate_overlay_ready": true,
+        "reason": null
+      }
+    ]
+  }
+}

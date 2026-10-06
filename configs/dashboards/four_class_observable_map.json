@@ -1,0 +1,23 @@
+{
+  "dashboard_id": "four_class_observable_map",
+  "artifact_subdir": "four_class_observable_map",
+  "representative_size": 64,
+  "ce_target": 0.025,
+  "mobj_target": 0.90,
+  "affinity_onset_thresholds": [0.001, 0.01, 0.05],
+  "coordinates": {
+    "x": "structural_boundary_lambda_ref",
+    "y": "log10_affinity_ref_clipped",
+    "color": "p4_dual_shift_min"
+  },
+  "sources": {
+    "class_i_ii_consolidation_root": "results/dashboards/class_i_class_ii_consolidation",
+    "taxonomy_root": "results/taxonomy/canonical_class_rubric",
+    "class_iii_confirmation_root": "results/pilots/class_iii_strict_confirmation_v2",
+    "class_iii_campaign_root": "results/campaigns/class_iii_full_campaign",
+    "class_iv_campaign_root": "results/campaigns/class_iv_full_campaign",
+    "class_iii_shadow_root": "results/phenomenology/class_iii_shadow_panel",
+    "class_iv_shadow_root": "results/phenomenology/class_iv_shadow_panel"
+  },
+  "findings_note_path": "notes/findings/F-03_four_class_observable_map.md"
+}
